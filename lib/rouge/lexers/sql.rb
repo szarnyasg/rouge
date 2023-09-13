@@ -12,80 +12,671 @@ module Rouge
 
       def self.keywords
         @keywords ||= Set.new %w(
-          ABORT ABS ABSOLUTE ACCESS ADA ADD ADMIN AFTER AGGREGATE ALIAS
-          ALL ALLOCATE ALTER ANALYSE ANALYZE AND ANY ARE AS ASC ASENSITIVE
-          ASSERTION ASSIGNMENT ASYMMETRIC AT ATOMIC AUTHORIZATION
-          AVG BACKWARD BEFORE BEGIN BETWEEN BITVAR BIT_LENGTH BOTH
-          BREADTH BY C CACHE CALL CALLED CARDINALITY CASCADE CASCADED
-          CASE CAST CATALOG CATALOG_NAME CHAIN CHARACTERISTICS
-          CHARACTER_LENGTH CHARACTER_SET_CATALOG CHARACTER_SET_NAME
-          CHARACTER_SET_SCHEMA CHAR_LENGTH CHECK CHECKED CHECKPOINT
-          CLASS CLASS_ORIGIN CLOB CLOSE CLUSTER COALSECE COBOL COLLATE
-          COLLATION COLLATION_CATALOG COLLATION_NAME COLLATION_SCHEMA
-          COLUMN COLUMN_NAME COMMAND_FUNCTION COMMAND_FUNCTION_CODE
-          COMMENT COMMIT COMMITTED COMPLETION CONDITION_NUMBER
-          CONNECT CONNECTION CONNECTION_NAME CONSTRAINT CONSTRAINTS
-          CONSTRAINT_CATALOG CONSTRAINT_NAME CONSTRAINT_SCHEMA
-          CONSTRUCTOR CONTAINS CONTINUE CONVERSION CONVERT COPY
-          CORRESPONTING COUNT CREATE CREATEDB CREATEUSER CROSS CUBE
-          CURRENT CURRENT_DATE CURRENT_PATH CURRENT_ROLE CURRENT_TIME
-          CURRENT_TIMESTAMP CURRENT_USER CURSOR CURSOR_NAME CYCLE DATA
-          DATABASE DATETIME_INTERVAL_CODE DATETIME_INTERVAL_PRECISION
-          DAY DEALLOCATE DECLARE DEFAULT DEFAULTS DEFERRABLE DEFERRED
-          DEFINED DEFINER DELETE DELIMITER DELIMITERS DEREF DESC DESCRIBE
-          DESCRIPTOR DESTROY DESTRUCTOR DETERMINISTIC DIAGNOSTICS
-          DICTIONARY DISCONNECT DISPATCH DISTINCT DO DOMAIN DROP
-          DYNAMIC DYNAMIC_FUNCTION DYNAMIC_FUNCTION_CODE EACH ELSE
-          ENCODING ENCRYPTED END END-EXEC EQUALS ESCAPE EVERY EXCEPT
-          ESCEPTION EXCLUDING EXCLUSIVE EXEC EXECUTE EXISTING EXISTS
-          EXPLAIN EXTERNAL EXTRACT FALSE FETCH FINAL FIRST FOLLOWING FOR
-          FORCE FOREIGN FORTRAN FORWARD FOUND FREE FREEZE FROM FULL FUNCTION
-          G GENERAL GENERATED GET GLOBAL GO GOTO GRANT GRANTED GROUP
-          GROUPING HANDLER HAVING HIERARCHY HOLD HOST IDENTITY IGNORE
-          ILIKE IMMEDIATE IMMUTABLE IMPLEMENTATION IMPLICIT IN INCLUDING
-          INCREMENT INDEX INDITCATOR INFIX INHERITS INITIALIZE INITIALLY
-          INNER INOUT INPUT INSENSITIVE INSERT INSTANTIABLE INSTEAD
-          INTERSECT INTO INVOKER IS ISNULL ISOLATION ITERATE JOIN KEY
-          KEY_MEMBER KEY_TYPE LANCOMPILER LANGUAGE LARGE LAST LATERAL
-          LEADING LEFT LENGTH LESS LEVEL LIKE LIMIT LISTEN LOAD LOCAL
-          LOCALTIME LOCALTIMESTAMP LOCATION LOCATOR LOCK LOWER MAP MATCH
-          MAX MAXVALUE MESSAGE_LENGTH MESSAGE_OCTET_LENGTH MESSAGE_TEXT
-          METHOD MIN MINUTE MINVALUE MOD MODE MODIFIES MODIFY MONTH
-          MORE MOVE MUMPS NAMES NATURAL NCLOB NEW NEXT
-          NO NOCREATEDB NOCREATEUSER NONE NOT NOTHING NOTIFY NOTNULL
-          NULL NULLABLE NULLIF OBJECT OCTET_LENGTH OF OFF OFFSET OIDS
-          OLD ON ONLY OPEN OPERATION OPERATOR OPTION OPTIONS OR ORDER
-          ORDINALITY OUT OUTER OUTPUT OVERLAPS OVERLAY OVERRIDING
-          OWNER PAD PARAMETER PARAMETERS PARAMETER_MODE PARAMATER_NAME
-          PARAMATER_ORDINAL_POSITION PARAMETER_SPECIFIC_CATALOG
-          PARAMETER_SPECIFIC_NAME PARAMATER_SPECIFIC_SCHEMA PARTIAL PARTITION
-          PASCAL PENDANT PLACING PLI POSITION POSTFIX PREFIX PRECEDING PREORDER
-          PREPARE PRESERVE PRIMARY PRIOR PRIVILEGES PROCEDURAL PROCEDURE
-          PUBLIC RANGE READ READS RECHECK RECURSIVE REF REFERENCES REFERENCING
-          REINDEX RELATIVE RENAME REPEATABLE REPLACE RESET RESTART
-          RESTRICT RESULT RETURN RETURNED_LENGTH RETURNED_OCTET_LENGTH
-          RETURNED_SQLSTATE RETURNS REVOKE RIGHT ROLE ROLLBACK ROLLUP
-          ROUTINE ROUTINE_CATALOG ROUTINE_NAME ROUTINE_SCHEMA ROW ROWS
-          ROW_COUNT RULE SAVE_POINT SCALE SCHEMA SCHEMA_NAME SCOPE SCROLL
-          SEARCH SECOND SECURITY SELECT SELF SENSITIVE SERIALIZABLE
-          SERVER_NAME SESSION SESSION_USER SET SETOF SETS SHARE SHOW
-          SIMILAR SIMPLE SIZE SOME SOURCE SPACE SPECIFIC SPECIFICTYPE
-          SPECIFIC_NAME SQL SQLCODE SQLERROR SQLEXCEPTION SQLSTATE
-          SQLWARNINIG STABLE START STATE STATEMENT STATIC STATISTICS
-          STDIN STDOUT STORAGE STRICT STRUCTURE STYPE SUBCLASS_ORIGIN
-          SUBLIST SUBSTRING SUM SYMMETRIC SYSID SYSTEM SYSTEM_USER
-          TABLE TABLE_NAME  TEMP TEMPLATE TEMPORARY TERMINATE THAN THEN
-          TIMEZONE_HOUR TIMEZONE_MINUTE TO TOAST TRAILING
-          TRANSATION TRANSACTIONS_COMMITTED TRANSACTIONS_ROLLED_BACK
-          TRANSATION_ACTIVE TRANSFORM TRANSFORMS TRANSLATE TRANSLATION
-          TREAT TRIGGER TRIGGER_CATALOG TRIGGER_NAME TRIGGER_SCHEMA TRIM
-          TRUE TRUNCATE TRUSTED TYPE UNCOMMITTED UNDER UNENCRYPTED UNION
-          UNIQUE UNKNOWN UNLISTEN UNNAMED UNNEST UNTIL UPDATE UPPER
-          USAGE USER USER_DEFINED_TYPE_CATALOG USER_DEFINED_TYPE_NAME
-          USER_DEFINED_TYPE_SCHEMA USING VACUUM VALID VALIDATOR VALUES
-          VARIABLE VERBOSE VERSION VIEW VOLATILE WHEN WHENEVER WHERE
-          WINDOW WITH WITHOUT WORK WRITE ZONE
-        )
+          ABORT
+          ABS
+          ABSOLUTE
+          ACCESS
+          ACTION
+          ADA
+          ADD
+          ADMIN
+          AFTER
+          AGGREGATE
+          ALIAS
+          ALL
+          ALLOCATE
+          ALSO
+          ALTER
+          ALWAYS
+          ANALYSE
+          ANALYZE
+          AND
+          ANTI
+          ANY
+          ARE
+          ARRAY
+          AS
+          ASC
+          ASENSITIVE
+          ASOF
+          ASSERTION
+          ASSIGNMENT
+          ASYMMETRIC
+          AT
+          ATOMIC
+          ATTACH
+          ATTRIBUTE
+          AUTHORIZATION
+          AVG
+          BACKWARD
+          BEFORE
+          BEGIN
+          BETWEEN
+          BIGINT
+          BINARY
+          BIT
+          BIT_LENGTH
+          BITVAR
+          BOOLEAN
+          BOTH
+          BREADTH
+          BY
+          C
+          CACHE
+          CALL
+          CALLED
+          CARDINALITY
+          CASCADE
+          CASCADED
+          CASE
+          CAST
+          CATALOG
+          CATALOG_NAME
+          CHAIN
+          CHAR
+          CHAR_LENGTH
+          CHARACTER
+          CHARACTER_LENGTH
+          CHARACTER_SET_CATALOG
+          CHARACTER_SET_NAME
+          CHARACTER_SET_SCHEMA
+          CHARACTERISTICS
+          CHECK
+          CHECKED
+          CHECKPOINT
+          CLASS
+          CLASS_ORIGIN
+          CLOB
+          CLOSE
+          CLUSTER
+          COALESCE
+          COALSECE
+          COBOL
+          COLLATE
+          COLLATION
+          COLLATION_CATALOG
+          COLLATION_NAME
+          COLLATION_SCHEMA
+          COLUMN
+          COLUMN_NAME
+          COLUMNS
+          COMMAND_FUNCTION
+          COMMAND_FUNCTION_CODE
+          COMMENT
+          COMMENTS
+          COMMIT
+          COMMITTED
+          COMPLETION
+          COMPRESSION
+          CONCURRENTLY
+          CONDITION_NUMBER
+          CONFIGURATION
+          CONFLICT
+          CONNECT
+          CONNECTION
+          CONNECTION_NAME
+          CONSTRAINT
+          CONSTRAINT_CATALOG
+          CONSTRAINT_NAME
+          CONSTRAINT_SCHEMA
+          CONSTRAINTS
+          CONSTRUCTOR
+          CONTAINS
+          CONTENT
+          CONTINUE
+          CONVERSION
+          CONVERT
+          COPY
+          CORRESPONTING
+          COST
+          COUNT
+          CREATE
+          CREATEDB
+          CREATEUSER
+          CROSS
+          CSV
+          CUBE
+          CURRENT
+          CURRENT_DATE
+          CURRENT_PATH
+          CURRENT_ROLE
+          CURRENT_TIME
+          CURRENT_TIMESTAMP
+          CURRENT_USER
+          CURSOR
+          CURSOR_NAME
+          CYCLE
+          DATA
+          DATABASE
+          DATETIME_INTERVAL_CODE
+          DATETIME_INTERVAL_PRECISION
+          DAY
+          DAYS
+          DEALLOCATE
+          DEC
+          DECIMAL
+          DECLARE
+          DEFAULT
+          DEFAULTS
+          DEFERRABLE
+          DEFERRED
+          DEFINED
+          DEFINER
+          DELETE
+          DELIMITER
+          DELIMITERS
+          DEPENDS
+          DEREF
+          DESC
+          DESCRIBE
+          DESCRIPTOR
+          DESTROY
+          DESTRUCTOR
+          DETACH
+          DETERMINISTIC
+          DIAGNOSTICS
+          DICTIONARY
+          DISABLE
+          DISCARD
+          DISCONNECT
+          DISPATCH
+          DISTINCT
+          DO
+          DOCUMENT
+          DOMAIN
+          DOUBLE
+          DROP
+          DYNAMIC
+          DYNAMIC_FUNCTION
+          DYNAMIC_FUNCTION_CODE
+          EACH
+          ELSE
+          ENABLE
+          ENCODING
+          ENCRYPTED
+          END
+          END-EXEC
+          ENUM
+          EQUALS
+          ESCAPE
+          ESCEPTION
+          EVENT
+          EVERY
+          EXCEPT
+          EXCLUDE
+          EXCLUDING
+          EXCLUSIVE
+          EXEC
+          EXECUTE
+          EXISTING
+          EXISTS
+          EXPLAIN
+          EXPORT
+          EXPORT_STATE
+          EXTENSION
+          EXTERNAL
+          EXTRACT
+          FALSE
+          FAMILY
+          FETCH
+          FILTER
+          FINAL
+          FIRST
+          FLOAT
+          FOLLOWING
+          FOR
+          FORCE
+          FOREIGN
+          FORTRAN
+          FORWARD
+          FOUND
+          FREE
+          FREEZE
+          FROM
+          FULL
+          FUNCTION
+          FUNCTIONS
+          G
+          GENERAL
+          GENERATED
+          GET
+          GLOB
+          GLOBAL
+          GO
+          GOTO
+          GRANT
+          GRANTED
+          GROUP
+          GROUPING
+          GROUPING_ID
+          HANDLER
+          HAVING
+          HEADER
+          HIERARCHY
+          HOLD
+          HOST
+          HOUR
+          HOURS
+          IDENTITY
+          IF
+          IGNORE
+          ILIKE
+          IMMEDIATE
+          IMMUTABLE
+          IMPLEMENTATION
+          IMPLICIT
+          IMPORT
+          IN
+          INCLUDE
+          INCLUDING
+          INCREMENT
+          INDEX
+          INDEXES
+          INDITCATOR
+          INFIX
+          INHERIT
+          INHERITS
+          INITIALIZE
+          INITIALLY
+          INLINE
+          INNER
+          INOUT
+          INPUT
+          INSENSITIVE
+          INSERT
+          INSTALL
+          INSTANTIABLE
+          INSTEAD
+          INT
+          INTEGER
+          INTERSECT
+          INTERVAL
+          INTO
+          INVOKER
+          IS
+          ISNULL
+          ISOLATION
+          ITERATE
+          JOIN
+          JSON
+          KEY
+          KEY_MEMBER
+          KEY_TYPE
+          LABEL
+          LANCOMPILER
+          LANGUAGE
+          LARGE
+          LAST
+          LATERAL
+          LEADING
+          LEAKPROOF
+          LEFT
+          LENGTH
+          LESS
+          LEVEL
+          LIKE
+          LIMIT
+          LISTEN
+          LOAD
+          LOCAL
+          LOCALTIME
+          LOCALTIMESTAMP
+          LOCATION
+          LOCATOR
+          LOCK
+          LOCKED
+          LOGGED
+          LOWER
+          MACRO
+          MAP
+          MAPPING
+          MATCH
+          MATERIALIZED
+          MAX
+          MAXVALUE
+          MESSAGE_LENGTH
+          MESSAGE_OCTET_LENGTH
+          MESSAGE_TEXT
+          METHOD
+          MICROSECOND
+          MICROSECONDS
+          MILLISECOND
+          MILLISECONDS
+          MIN
+          MINUTE
+          MINUTES
+          MINVALUE
+          MOD
+          MODE
+          MODIFIES
+          MODIFY
+          MONTH
+          MONTHS
+          MORE
+          MOVE
+          MUMPS
+          NAME
+          NAMES
+          NATIONAL
+          NATURAL
+          NCHAR
+          NCLOB
+          NEW
+          NEXT
+          NO
+          NOCREATEDB
+          NOCREATEUSER
+          NONE
+          NOT
+          NOTHING
+          NOTIFY
+          NOTNULL
+          NOWAIT
+          NULL
+          NULLABLE
+          NULLIF
+          NULLS
+          NUMERIC
+          OBJECT
+          OCTET_LENGTH
+          OF
+          OFF
+          OFFSET
+          OIDS
+          OLD
+          ON
+          ONLY
+          OPEN
+          OPERATION
+          OPERATOR
+          OPTION
+          OPTIONS
+          OR
+          ORDER
+          ORDINALITY
+          OUT
+          OUTER
+          OUTPUT
+          OVER
+          OVERLAPS
+          OVERLAY
+          OVERRIDING
+          OWNED
+          OWNER
+          PAD
+          PARALLEL
+          PARAMATER_NAME
+          PARAMATER_ORDINAL_POSITION
+          PARAMATER_SPECIFIC_SCHEMA
+          PARAMETER
+          PARAMETER_MODE
+          PARAMETER_SPECIFIC_CATALOG
+          PARAMETER_SPECIFIC_NAME
+          PARAMETERS
+          PARSER
+          PARTIAL
+          PARTITION
+          PASCAL
+          PASSING
+          PASSWORD
+          PENDANT
+          PERCENT
+          PIVOT
+          PIVOT_LONGER
+          PIVOT_WIDER
+          PLACING
+          PLANS
+          PLI
+          POLICY
+          POSITION
+          POSITIONAL
+          POSTFIX
+          PRAGMA
+          PRECEDING
+          PRECISION
+          PREFIX
+          PREORDER
+          PREPARE
+          PREPARED
+          PRESERVE
+          PRIMARY
+          PRIOR
+          PRIVILEGES
+          PROCEDURAL
+          PROCEDURE
+          PROGRAM
+          PUBLIC
+          PUBLICATION
+          QUALIFY
+          QUOTE
+          RANGE
+          READ
+          READS
+          REAL
+          REASSIGN
+          RECHECK
+          RECURSIVE
+          REF
+          REFERENCES
+          REFERENCING
+          REFRESH
+          REINDEX
+          RELATIVE
+          RELEASE
+          RENAME
+          REPEATABLE
+          REPLACE
+          REPLICA
+          RESET
+          RESPECT
+          RESTART
+          RESTRICT
+          RESULT
+          RETURN
+          RETURNED_LENGTH
+          RETURNED_OCTET_LENGTH
+          RETURNED_SQLSTATE
+          RETURNING
+          RETURNS
+          REVOKE
+          RIGHT
+          ROLE
+          ROLLBACK
+          ROLLUP
+          ROUTINE
+          ROUTINE_CATALOG
+          ROUTINE_NAME
+          ROUTINE_SCHEMA
+          ROW
+          ROW_COUNT
+          ROWS
+          RULE
+          SAMPLE
+          SAVE_POINT
+          SAVEPOINT
+          SCALE
+          SCHEMA
+          SCHEMA_NAME
+          SCHEMAS
+          SCOPE
+          SCROLL
+          SEARCH
+          SECOND
+          SECONDS
+          SECURITY
+          SELECT
+          SELF
+          SEMI
+          SENSITIVE
+          SEQUENCE
+          SEQUENCES
+          SERIALIZABLE
+          SERVER
+          SERVER_NAME
+          SESSION
+          SESSION_USER
+          SET
+          SETOF
+          SETS
+          SHARE
+          SHOW
+          SIMILAR
+          SIMPLE
+          SIZE
+          SKIP
+          SMALLINT
+          SNAPSHOT
+          SOME
+          SOURCE
+          SPACE
+          SPECIFIC
+          SPECIFIC_NAME
+          SPECIFICTYPE
+          SQL
+          SQLCODE
+          SQLERROR
+          SQLEXCEPTION
+          SQLSTATE
+          SQLWARNINIG
+          STABLE
+          STANDALONE
+          START
+          STATE
+          STATEMENT
+          STATIC
+          STATISTICS
+          STDIN
+          STDOUT
+          STORAGE
+          STORED
+          STRICT
+          STRIP
+          STRUCT
+          STRUCTURE
+          STYPE
+          SUBCLASS_ORIGIN
+          SUBLIST
+          SUBSCRIPTION
+          SUBSTRING
+          SUM
+          SUMMARIZE
+          SYMMETRIC
+          SYSID
+          SYSTEM
+          SYSTEM_USER
+          TABLE
+          TABLE_NAME
+          TABLES
+          TABLESAMPLE
+          TABLESPACE
+          TEMP
+          TEMPLATE
+          TEMPORARY
+          TERMINATE
+          TEXT
+          THAN
+          THEN
+          TIME
+          TIMESTAMP
+          TIMEZONE_HOUR
+          TIMEZONE_MINUTE
+          TO
+          TOAST
+          TRAILING
+          TRANSACTION
+          TRANSACTIONS_COMMITTED
+          TRANSACTIONS_ROLLED_BACK
+          TRANSATION
+          TRANSATION_ACTIVE
+          TRANSFORM
+          TRANSFORMS
+          TRANSLATE
+          TRANSLATION
+          TREAT
+          TRIGGER
+          TRIGGER_CATALOG
+          TRIGGER_NAME
+          TRIGGER_SCHEMA
+          TRIM
+          TRUE
+          TRUNCATE
+          TRUSTED
+          TRY_CAST
+          TYPE
+          TYPES
+          UNBOUNDED
+          UNCOMMITTED
+          UNDER
+          UNENCRYPTED
+          UNION
+          UNIQUE
+          UNKNOWN
+          UNLISTEN
+          UNLOGGED
+          UNNAMED
+          UNNEST
+          UNPIVOT
+          UNTIL
+          UPDATE
+          UPPER
+          USAGE
+          USE
+          USER
+          USER_DEFINED_TYPE_CATALOG
+          USER_DEFINED_TYPE_NAME
+          USER_DEFINED_TYPE_SCHEMA
+          USING
+          VACUUM
+          VALID
+          VALIDATE
+          VALIDATOR
+          VALUE
+          VALUES
+          VARCHAR
+          VARIABLE
+          VARIADIC
+          VARYING
+          VERBOSE
+          VERSION
+          VIEW
+          VIEWS
+          VIRTUAL
+          VOLATILE
+          WHEN
+          WHENEVER
+          WHERE
+          WHITESPACE
+          WINDOW
+          WITH
+          WITHIN
+          WITHOUT
+          WORK
+          WRAPPER
+          WRITE
+          XML
+          XMLATTRIBUTES
+          XMLCONCAT
+          XMLELEMENT
+          XMLEXISTS
+          XMLFOREST
+          XMLNAMESPACES
+          XMLPARSE
+          XMLPI
+          XMLROOT
+          XMLSERIALIZE
+          XMLTABLE
+          YEAR
+          YEARS
+          YES
+          ZONE
+          AUTO_DETECT
+          FORMAT
+          PARQUET
+          ZSTD
+          FIELD_IDS
+          READ_ONLY
+          MEDIAN
+      )
       end
 
       def self.keywords_type
