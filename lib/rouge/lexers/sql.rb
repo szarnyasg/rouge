@@ -707,9 +707,9 @@ module Rouge
         rule %r/`/, Name::Variable, :backtick
 
         rule %r/\w[\w\d]*/ do |m|
-          if self.class.keywords_type.include? m[0].upcase
+          if self.class.keywords_type.include? m[0]
             token Name::Builtin
-          elsif self.class.keywords.include? m[0].upcase
+          elsif self.class.keywords.include? m[0]
             token Keyword
           else
             token Name
