@@ -751,7 +751,7 @@ module Rouge
           UINT64
           UINT8
           UINTEGER
-          UNION
+          #UNION #excluded manually to avoid confusion with UNION ALL
           USMALLINT
           UTINYINT
           UUID
