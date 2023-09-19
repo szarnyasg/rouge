@@ -10,6 +10,7 @@ module Rouge
       filenames '*.sql'
       mimetypes 'text/x-sql'
 
+      # list is taken from https://github.com/szarnyasg/duckdb/tree/main/third_party/libpg_query/grammar/keywords
       def self.keywords
         @keywords ||= Set.new %w(
           ABORT
