@@ -702,7 +702,7 @@ module Rouge
         rule %r/\d+/, Num::Integer
         rule %r/'/, Str::Single, :single_string
         # A double-quoted string refers to a database object in our default SQL
-        # dialect, which is apropriate for e.g. MS SQL and PostgreSQL.
+        # dialect, which is appropriate for e.g. PostgreSQL and DuckDB.
         rule %r/"/, Name::Variable, :double_string
         rule %r/`/, Name::Variable, :backtick
 
