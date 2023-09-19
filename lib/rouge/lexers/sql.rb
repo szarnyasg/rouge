@@ -681,18 +681,82 @@ module Rouge
       end
 
       def self.keywords_type
-        # sources:
-        # https://dev.mysql.com/doc/refman/5.7/en/numeric-type-overview.html
-        # https://dev.mysql.com/doc/refman/5.7/en/date-and-time-type-overview.html
-        # https://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html
+        # Use the `extract_type_names.py` script in the repository root to generate this list
         @keywords_type ||= Set.new(%w(
-            ZEROFILL UNSIGNED SIGNED SERIAL BIT TINYINT BOOL BOOLEAN SMALLINT
-            MEDIUMINT INT INTEGER BIGINT DECIMAL DEC NUMERIC FIXED FLOAT DOUBLE
-            PRECISION REAL
-            DATE DATETIME TIMESTAMP TIME YEAR
-            NATIONAL CHAR CHARACTER NCHAR BYTE
-            VARCHAR VARYING BINARY VARBINARY TINYBLOB TINYTEXT BLOB TEXT
-            MEDIUMBLOB MEDIUMTEXT LONGBLOB LONGTEXT ENUM
+          BIGINT
+          BINARY
+          BIT
+          BITSTRING
+          BLOB
+          BOOL
+          BOOLEAN
+          BPCHAR
+          BYTEA
+          CHAR
+          DATE
+          DATETIME
+          DEC
+          DECIMAL
+          DOUBLE
+          ENUM
+          FLOAT
+          FLOAT4
+          FLOAT8
+          GUID
+          HUGEINT
+          INT
+          INT1
+          INT128
+          INT16
+          INT2
+          INT32
+          INT4
+          INT64
+          INT8
+          INTEGER
+          INTEGRAL
+          INTERVAL
+          LIST
+          LOGICAL
+          LONG
+          MAP
+          NULL
+          NUMERIC
+          NVARCHAR
+          OID
+          REAL
+          ROW
+          SHORT
+          SIGNED
+          SMALLINT
+          SQLNULL
+          STRING
+          STRUCT
+          TEXT
+          TIME
+          TIMESTAMP
+          TIMESTAMPTZ
+          TIMESTAMP_MS
+          TIMESTAMP_NS
+          TIMESTAMP_S
+          TIMESTAMP_SEC
+          TIMESTAMP_TZ
+          TIMESTAMP_US
+          TIMETZ
+          TIME_TZ
+          TINYINT
+          UBIGINT
+          UINT16
+          UINT32
+          UINT64
+          UINT8
+          UINTEGER
+          UNION
+          USMALLINT
+          UTINYINT
+          UUID
+          VARBINARY
+          VARCHAR
         ))
       end
 

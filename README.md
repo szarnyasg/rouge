@@ -1,8 +1,11 @@
-# Rouge
+# Rouge / DuckDB fork
 
-![Build Status](https://github.com/rouge-ruby/rouge/actions/workflows/ruby.yml/badge.svg)
-[![Gem Version](https://badge.fury.io/rb/rouge.svg)](https://rubygems.org/gems/rouge)
-[![YARD Docs](http://img.shields.io/badge/yard-docs-blue.svg)](https://rouge-ruby.github.io/docs/)
+This fork of [Rouge](https://github.com/rouge-ruby/rouge) supports DuckDB's SQL syntax.
+
+* Keywords: Extracted manually from DuckDB's [lexer](https://github.com/szarnyasg/duckdb/tree/main/third_party/libpg_query/grammar/keywords).
+* Type names: Run `extract_type_names.py` to extract them from DuckDB's source code.
+
+## Rouge
 
 [Rouge][] is a pure Ruby syntax highlighter. It can highlight
 [over 200 different languages][languages-doc], and output HTML
