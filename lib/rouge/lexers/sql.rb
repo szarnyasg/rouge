@@ -684,6 +684,8 @@ module Rouge
           READ_ONLY
           MEDIAN
           ROW_GROUP_SIZE
+          UNSTRUCTURED
+          NEWLINE_DELIMITED
       ))
       end
 
