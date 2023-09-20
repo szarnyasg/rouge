@@ -673,10 +673,17 @@ module Rouge
           AUTO_DETECT
           FORMAT
           PARQUET
+          UNCOMPRESSED
+          SNAPPY
+          GZIP
+          LZO
+          BROTLI
+          LZ4
           ZSTD
           FIELD_IDS
           READ_ONLY
           MEDIAN
+          ROW_GROUP_SIZE
       ))
       end
 
