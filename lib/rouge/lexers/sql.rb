@@ -766,6 +766,7 @@ module Rouge
           UUID
           VARBINARY
           VARCHAR
+          ARRAY
         ))
       end
 
