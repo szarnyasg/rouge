@@ -670,6 +670,7 @@ module Rouge
           YEARS
           YES
           ZONE
+          AUTO
           AUTO_DETECT
           FORMAT
           PARQUET
