@@ -217,6 +217,7 @@ module Rouge
           EXTENSION
           EXTERNAL
           EXTRACT
+          false
           FALSE
           FAMILY
           FETCH
@@ -599,6 +600,7 @@ module Rouge
           TRIGGER_NAME
           TRIGGER_SCHEMA
           TRIM
+          true
           TRUE
           TRUNCATE
           TRUSTED
