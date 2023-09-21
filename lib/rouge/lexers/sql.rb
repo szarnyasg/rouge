@@ -1043,6 +1043,70 @@ module Rouge
           yearweek
           |
           ~
+          # geospatial
+          ST_Area
+          ST_Area
+          ST_Area_Spheroid
+          ST_AsGeoJSON
+          ST_AsText
+          ST_AsWKB
+          ST_Boundary
+          ST_Buffer
+          ST_Centroid
+          ST_Collect
+          ST_CollectionExtract
+          ST_Contains
+          ST_ContainsProperly
+          ST_ConvexHull
+          ST_CoveredBy
+          ST_Covers
+          ST_Crosses
+          ST_Difference
+          ST_Dimension
+          ST_Disjoint
+          ST_Distance
+          ST_Distance_Spheroid
+          ST_DWithin
+          ST_DWithin_Spheroid
+          ST_Envelope
+          ST_Equals
+          ST_Extent
+          ST_ExteriorRing
+          ST_FlipCoordinates
+          ST_GeometryType
+          ST_GeomFromGeoJSON
+          ST_GeomFromText
+          ST_GeomFromWKB
+          ST_Intersection
+          ST_Intersects
+          ST_IsClosed
+          ST_IsEmpty
+          ST_IsRing
+          ST_IsSimple
+          ST_IsValid
+          ST_Length
+          ST_Length_Spheroid
+          ST_MakeLine
+          ST_Normalize
+          ST_Overlaps
+          ST_Perimeter
+          ST_Perimeter_Spheroid
+          ST_PointN
+          ST_PointOnSurface
+          ST_ReducePrecision
+          ST_RemoveRepeatedPoints
+          ST_Simplify
+          ST_SimplifyPreserveTopology
+          ST_Touches
+          ST_Transform
+          ST_Union
+          ST_Within
+          ST_X
+          ST_Xmax
+          ST_Xmin
+          ST_Y
+          ST_Ymax
+          ST_Ymin          
         ))
       end
 
