@@ -670,9 +670,12 @@ module Rouge
           YEARS
           YES
           ZONE
-          AUTO
+          # misc
+          # CSV
           AUTO_DETECT
           FORMAT
+          READ_ONLY
+          # parquet
           PARQUET
           UNCOMPRESSED
           SNAPPY
@@ -682,11 +685,16 @@ module Rouge
           LZ4
           ZSTD
           FIELD_IDS
-          READ_ONLY
-          MEDIAN
           ROW_GROUP_SIZE
+          # JSON
+          AUTO
           UNSTRUCTURED
           NEWLINE_DELIMITED
+          # geospatial
+          GDAL
+          DRIVER
+          LAYER_CREATION_OPTIONS
+
       ))
       end
 
@@ -768,6 +776,21 @@ module Rouge
           VARBINARY
           VARCHAR
           ARRAY
+          # geospatial
+          GEOMETRY
+          POINT
+          LINESTRING
+          POLYGON
+          MULTIPOINT
+          MULTILINESTRING
+          MULTIPOLYGON
+          GEOMETRYCOLLECTION
+          POINT_2D
+          LINESTRING_2D
+          POLYGON_2D
+          BOX_2D
+          WKB_BLOB
+          GeometryType
         ))
       end
 
