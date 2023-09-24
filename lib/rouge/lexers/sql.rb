@@ -688,6 +688,10 @@ module Rouge
           ZSTD
           FIELD_IDS
           ROW_GROUP_SIZE
+          PARTITION_BY
+          OVERWRITE_OR_IGNORE
+          FILENAME_PATTERN
+          USE_TMP_FILE
           # JSON
           AUTO
           UNSTRUCTURED
