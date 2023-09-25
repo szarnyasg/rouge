@@ -1112,7 +1112,9 @@ module Rouge
           ST_Xmin
           ST_Y
           ST_Ymax
-          ST_Ymin          
+          ST_Ymin
+          dbgen
+          dsdgen
         ))
       end
 
