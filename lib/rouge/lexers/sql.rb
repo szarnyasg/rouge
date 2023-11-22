@@ -841,6 +841,7 @@ module Rouge
           corr
           cos
           cot
+          count
           covar_pop
           covar_samp
           current_database
@@ -1115,6 +1116,9 @@ module Rouge
           ST_Ymin
           dbgen
           dsdgen
+          reservoir
+          bernoulli
+          system
         ))
       end
 
