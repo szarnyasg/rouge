@@ -91,7 +91,6 @@ module Rouge
           CLOSE
           CLUSTER
           COALESCE
-          COALSECE
           COBOL
           COLLATE
           COLLATION
@@ -839,6 +838,7 @@ module Rouge
           ceil
           century
           chr
+          coalesce
           corr
           cos
           cot
