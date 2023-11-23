@@ -700,7 +700,8 @@ module Rouge
           GDAL
           DRIVER
           LAYER_CREATION_OPTIONS
-
+          # iceberg
+          ALLOW_MOVED_PATHS
       ))
       end
 
@@ -896,6 +897,7 @@ module Rouge
           hex
           histogram
           hour
+          ifnull
           in_search_path
           instr
           isfinite
@@ -1114,11 +1116,21 @@ module Rouge
           ST_Y
           ST_Ymax
           ST_Ymin
+          # tpch, tpcds
           dbgen
           dsdgen
+          # samples
           reservoir
           bernoulli
           system
+          # array
+          array_value
+          array_cross_product
+          array_cosine_similarity
+          array_distance
+          array_inner_product
+          array_dot_product
+          array_inner_product
         ))
       end
 
