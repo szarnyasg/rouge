@@ -42,7 +42,7 @@ module Rouge
         pathchk mktemp realpath pwd stty printenv tty id logname whoami
         groups users who date arch nproc uname hostname hostid uptime chcon
         runcon chroot env nice nohup stdbuf timeout kill sleep factor numfmt
-        seq tar grep sudo awk sed gzip gunzip
+        seq tar grep sudo awk sed gzip gunzip apt apt-get yum apk add brew
       ).join('|')
 
       state :basic do
