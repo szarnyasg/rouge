@@ -921,17 +921,32 @@ module Rouge
           lgamma
           list
           list_aggregate
+          list_any_value
+          list_append
+          list_concat
+          list_contains
           list_cosine_similarity
           list_distance
           list_distinct
+          list_dot_product
+          list_extract
           list_filter
-          list_inner_product
+          list_grade_up
+          list_has_all
+          list_has_any
+          list_intersect
+          list_position
+          list_prepend
+          list_resize
+          list_reverse
           list_reverse_sort
+          list_select
           list_slice
           list_sort
           list_transform
           list_unique
           list_value
+          list_where
           list_zip
           ln
           log10
@@ -1126,13 +1141,35 @@ module Rouge
           bernoulli
           system
           # array
-          array_value
-          array_cross_product
+          array_aggregate
+          array_any_value
+          array_append
+          array_concat
+          array_contains
           array_cosine_similarity
+          array_cross_product
           array_distance
-          array_inner_product
+          array_distinct
           array_dot_product
+          array_extract
+          array_filter
+          array_grade_up
+          array_has_all
+          array_has_any
           array_inner_product
+          array_intersect
+          array_position
+          array_prepend
+          array_resize
+          array_reverse
+          array_reverse_sort
+          array_select
+          array_slice
+          array_sort
+          array_transform
+          array_unique
+          array_value
+          array_where
           array_zip
           # formats
           read_csv
