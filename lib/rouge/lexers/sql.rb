@@ -864,6 +864,7 @@ module Rouge
           decade
           decode
           degrees
+          element_at
           encode
           entropy
           enum_code
@@ -931,6 +932,7 @@ module Rouge
           list_transform
           list_unique
           list_value
+          list_zip
           ln
           log10
           log2
@@ -1131,6 +1133,12 @@ module Rouge
           array_inner_product
           array_dot_product
           array_inner_product
+          array_zip
+          # formats
+          read_csv
+          read_csv_auto
+          read_parquet
+          read_json_auto
         ))
       end
 
