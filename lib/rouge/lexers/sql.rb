@@ -1176,6 +1176,10 @@ module Rouge
           read_csv_auto
           read_parquet
           read_json_auto
+          # extension macros
+          fts_main_documents
+          match_bm25
+          drop_fts_index
           # extension functions from https://github.com/duckdb/duckdb/blob/main/src/include/duckdb/main/extension_entries.hpp
           add_parquet_key
           array_to_json
