@@ -1356,6 +1356,20 @@ module Rouge
           tpch_queries
           # pragmas
           show_tables
+          # window function aggregates
+          cume_dist
+          first
+          first_value
+          lag
+          last
+          last_value
+          lead
+          nth_value
+          ntile
+          percent_rank
+          rank_dense
+          rank
+          row_number
         ))
       end
 
