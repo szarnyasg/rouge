@@ -148,6 +148,7 @@ module Rouge
           CYCLE
           DATA
           DATABASE
+          DATABASES
           DATETIME_INTERVAL_CODE
           DATETIME_INTERVAL_PRECISION
           DAY
