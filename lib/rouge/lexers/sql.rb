@@ -791,6 +791,7 @@ module Rouge
           BOX_2D
           WKB_BLOB
           GeometryType
+          SQLITE
         ))
       end
 
