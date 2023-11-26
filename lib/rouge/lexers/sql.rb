@@ -672,12 +672,9 @@ module Rouge
           YEARS
           YES
           ZONE
-          # misc
-          # CSV
           AUTO_DETECT
           FORMAT
           READ_ONLY
-          # parquet
           PARQUET
           UNCOMPRESSED
           SNAPPY
@@ -692,15 +689,12 @@ module Rouge
           OVERWRITE_OR_IGNORE
           FILENAME_PATTERN
           USE_TMP_FILE
-          # JSON
           AUTO
           UNSTRUCTURED
           NEWLINE_DELIMITED
-          # geospatial
           GDAL
           DRIVER
           LAYER_CREATION_OPTIONS
-          # iceberg
           ALLOW_MOVED_PATHS
       ))
       end
@@ -783,7 +777,6 @@ module Rouge
           VARBINARY
           VARCHAR
           ARRAY
-          # geospatial
           GEOMETRY
           POINT
           LINESTRING
@@ -1070,7 +1063,6 @@ module Rouge
           yearweek
           |
           ~
-          # geospatial
           ST_Area
           ST_Area
           ST_Area_Spheroid
@@ -1134,14 +1126,11 @@ module Rouge
           ST_Y
           ST_Ymax
           ST_Ymin
-          # tpch, tpcds
           dbgen
           dsdgen
-          # samples
           reservoir
           bernoulli
           system
-          # array
           array_aggregate
           array_any_value
           array_append
@@ -1172,16 +1161,13 @@ module Rouge
           array_value
           array_where
           array_zip
-          # formats
           read_csv
           read_csv_auto
           read_parquet
           read_json_auto
-          # extension macros
           fts_main_documents
           match_bm25
           drop_fts_index
-          # extension functions from https://github.com/duckdb/duckdb/blob/main/src/include/duckdb/main/extension_entries.hpp
           add_parquet_key
           array_to_json
           create_fts_index
@@ -1359,7 +1345,6 @@ module Rouge
           tpch
           tpch_answers
           tpch_queries
-          # window function aggregates
           cume_dist
           first
           first_value
@@ -1373,7 +1358,6 @@ module Rouge
           rank_dense
           rank
           row_number
-          # meta
           duckdb_columns
           duckdb_constraints
           duckdb_databases
