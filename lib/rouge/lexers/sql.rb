@@ -1676,6 +1676,7 @@ module Rouge
           plus_one
           static_table
           triple_add
+          myavg
         ))
       end
 
