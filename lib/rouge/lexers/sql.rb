@@ -1373,6 +1373,22 @@ module Rouge
           rank_dense
           rank
           row_number
+          # meta
+          duckdb_columns
+          duckdb_constraints
+          duckdb_databases
+          duckdb_dependencies
+          duckdb_extensions
+          duckdb_functions
+          duckdb_indexes
+          duckdb_keywords
+          duckdb_schemas
+          duckdb_sequences
+          duckdb_settings
+          duckdb_tables
+          duckdb_temporary_files
+          duckdb_types
+          duckdb_views
         ))
       end
 
