@@ -1665,6 +1665,15 @@ module Rouge
           xor
           year
           yearweek
+          add_default
+          arr_append
+          dynamic_table
+          get_users
+          ifelse
+          one
+          plus_one
+          static_table
+          triple_add
         ))
       end
 
