@@ -1280,6 +1280,7 @@ module Rouge
           obj_description
           octet_length
           ord
+          parquet_file_metadata
           parquet_kv_metadata
           parquet_metadata
           parquet_scan
