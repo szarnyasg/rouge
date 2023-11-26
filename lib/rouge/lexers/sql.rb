@@ -1387,11 +1387,30 @@ module Rouge
         rule %r/"/, Name::Variable, :double_string
         rule %r/`/, Name::Variable, :backtick
 
+        # Strings 'something(' are candidates to be treated as function names
+        rule %r/(\w[\w\d]*)(\()/ do |m|
+          if self.class.function_names.include? m[1]
+            token Name::Function, m[1]
+            token Punctuation, m[2]
+          elsif self.class.keywords_type.include? m[1]
+            token Name::Builtin, m[1]
+            token Punctuation, m[2]
+          elsif self.class.keywords.include? m[1]
+            token Keyword, m[1]
+            token Punctuation, m[2]
+          else
+            token Name, m[1]
+            token Punctuation, m[2]
+          end
+        end
+
+        # Strings 'something' are not candidates to be treated as function names
+        # The rationale behind this is that many function names are common words
+        # (e.g., version, month, year), and we do *not* want these to be highlighted
+        # as function names.
         rule %r/\w[\w\d]*/ do |m|
           if self.class.keywords_type.include? m[0]
             token Name::Builtin
-          elsif self.class.function_names.include? m[0]
-            token Name::Function
           elsif self.class.keywords.include? m[0]
             token Keyword
           else
