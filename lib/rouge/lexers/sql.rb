@@ -1359,8 +1359,6 @@ module Rouge
           tpch
           tpch_answers
           tpch_queries
-          # pragmas
-          show_tables
           # window function aggregates
           cume_dist
           first
