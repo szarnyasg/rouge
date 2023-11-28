@@ -696,6 +696,7 @@ module Rouge
           DRIVER
           LAYER_CREATION_OPTIONS
           ALLOW_MOVED_PATHS
+          PER_THREAD_OUTPUT
       ))
       end
 
