@@ -205,6 +205,7 @@ module Rouge
           EVERY
           EXCEPT
           EXCLUDE
+          EXCLUDED
           EXCLUDING
           EXCLUSIVE
           EXEC
