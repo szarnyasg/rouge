@@ -1027,6 +1027,7 @@ module Rouge
           even
           excel_text
           exp
+          extract
           factorial
           favg
           fdiv
