@@ -1208,6 +1208,7 @@ module Rouge
           list_position
           list_prepend
           list_product
+          list_reduce
           list_resize
           list_reverse
           list_reverse_sort
