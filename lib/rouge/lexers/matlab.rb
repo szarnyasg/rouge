@@ -12,69 +12,150 @@ module Rouge
       mimetypes 'text/x-matlab', 'application/x-matlab'
 
       def self.keywords
-        @keywords = Set.new %w(
-          arguments break case catch classdef continue else elseif end for
-          function global if import methods otherwise parfor persistent
-          properties return spmd switch try while
+        @keywords ||= Set.new %w(
+          ABORT ABS ABSOLUTE ACCESS ADA ADD ADMIN AFTER AGGREGATE ALIAS
+          ALL ALLOCATE ALTER ANALYSE ANALYZE AND ANY ARE AS ASC ASENSITIVE
+          ASSERTION ASSIGNMENT ASYMMETRIC AT ATOMIC AUTHORIZATION
+          AVG BACKWARD BEFORE BEGIN BETWEEN BITVAR BIT_LENGTH BOTH
+          BREADTH BY C CACHE CALL CALLED CARDINALITY CASCADE CASCADED
+          CASE CAST CATALOG CATALOG_NAME CHAIN CHARACTERISTICS
+          CHARACTER_LENGTH CHARACTER_SET_CATALOG CHARACTER_SET_NAME
+          CHARACTER_SET_SCHEMA CHAR_LENGTH CHECK CHECKED CHECKPOINT
+          CLASS CLASS_ORIGIN CLOB CLOSE CLUSTER COALSECE COBOL COLLATE
+          COLLATION COLLATION_CATALOG COLLATION_NAME COLLATION_SCHEMA
+          COLUMN COLUMN_NAME COMMAND_FUNCTION COMMAND_FUNCTION_CODE
+          COMMENT COMMIT COMMITTED COMPLETION CONDITION_NUMBER
+          CONNECT CONNECTION CONNECTION_NAME CONSTRAINT CONSTRAINTS
+          CONSTRAINT_CATALOG CONSTRAINT_NAME CONSTRAINT_SCHEMA
+          CONSTRUCTOR CONTAINS CONTINUE CONVERSION CONVERT COPY
+          CORRESPONTING COUNT CREATE CREATEDB CREATEUSER CROSS CUBE
+          CURRENT CURRENT_DATE CURRENT_PATH CURRENT_ROLE CURRENT_TIME
+          CURRENT_TIMESTAMP CURRENT_USER CURSOR CURSOR_NAME CYCLE DATA
+          DATABASE DATETIME_INTERVAL_CODE DATETIME_INTERVAL_PRECISION
+          DAY DEALLOCATE DECLARE DEFAULT DEFAULTS DEFERRABLE DEFERRED
+          DEFINED DEFINER DELETE DELIMITER DELIMITERS DEREF DESC DESCRIBE
+          DESCRIPTOR DESTROY DESTRUCTOR DETERMINISTIC DIAGNOSTICS
+          DICTIONARY DISCONNECT DISPATCH DISTINCT DO DOMAIN DROP
+          DYNAMIC DYNAMIC_FUNCTION DYNAMIC_FUNCTION_CODE EACH ELSE
+          ENCODING ENCRYPTED END END-EXEC EQUALS ESCAPE EVERY EXCEPT
+          ESCEPTION EXCLUDING EXCLUSIVE EXEC EXECUTE EXISTING EXISTS
+          EXPLAIN EXTERNAL EXTRACT FALSE FETCH FINAL FIRST FOLLOWING FOR
+          FORCE FOREIGN FORTRAN FORWARD FOUND FREE FREEZE FROM FULL FUNCTION
+          G GENERAL GENERATED GET GLOBAL GO GOTO GRANT GRANTED GROUP
+          GROUPING HANDLER HAVING HIERARCHY HOLD HOST IDENTITY IGNORE
+          ILIKE IMMEDIATE IMMUTABLE IMPLEMENTATION IMPLICIT IN INCLUDING
+          INCREMENT INDEX INDITCATOR INFIX INHERITS INITIALIZE INITIALLY
+          INNER INOUT INPUT INSENSITIVE INSERT INSTANTIABLE INSTEAD
+          INTERSECT INTO INVOKER IS ISNULL ISOLATION ITERATE JOIN KEY
+          KEY_MEMBER KEY_TYPE LANCOMPILER LANGUAGE LARGE LAST LATERAL
+          LEADING LEFT LENGTH LESS LEVEL LIKE LIMIT LISTEN LOAD LOCAL
+          LOCALTIME LOCALTIMESTAMP LOCATION LOCATOR LOCK LOWER MAP MATCH
+          MAX MAXVALUE MESSAGE_LENGTH MESSAGE_OCTET_LENGTH MESSAGE_TEXT
+          METHOD MIN MINUTE MINVALUE MOD MODE MODIFIES MODIFY MONTH
+          MORE MOVE MUMPS NAMES NATURAL NCLOB NEW NEXT
+          NO NOCREATEDB NOCREATEUSER NONE NOT NOTHING NOTIFY NOTNULL
+          NULL NULLABLE NULLIF OBJECT OCTET_LENGTH OF OFF OFFSET OIDS
+          OLD ON ONLY OPEN OPERATION OPERATOR OPTION OPTIONS OR ORDER
+          ORDINALITY OUT OUTER OUTPUT OVERLAPS OVERLAY OVERRIDING
+          OWNER PAD PARAMETER PARAMETERS PARAMETER_MODE PARAMATER_NAME
+          PARAMATER_ORDINAL_POSITION PARAMETER_SPECIFIC_CATALOG
+          PARAMETER_SPECIFIC_NAME PARAMATER_SPECIFIC_SCHEMA PARTIAL PARTITION
+          PASCAL PENDANT PLACING PLI POSITION POSTFIX PREFIX PRECEDING PREORDER
+          PREPARE PRESERVE PRIMARY PRIOR PRIVILEGES PROCEDURAL PROCEDURE
+          PUBLIC RANGE READ READS RECHECK RECURSIVE REF REFERENCES REFERENCING
+          REINDEX RELATIVE RENAME REPEATABLE REPLACE RESET RESTART
+          RESTRICT RESULT RETURN RETURNED_LENGTH RETURNED_OCTET_LENGTH
+          RETURNED_SQLSTATE RETURNS REVOKE RIGHT ROLE ROLLBACK ROLLUP
+          ROUTINE ROUTINE_CATALOG ROUTINE_NAME ROUTINE_SCHEMA ROW ROWS
+          ROW_COUNT RULE SAVE_POINT SCALE SCHEMA SCHEMA_NAME SCOPE SCROLL
+          SEARCH SECOND SECURITY SELECT SELF SENSITIVE SERIALIZABLE
+          SERVER_NAME SESSION SESSION_USER SET SETOF SETS SHARE SHOW
+          SIMILAR SIMPLE SIZE SOME SOURCE SPACE SPECIFIC SPECIFICTYPE
+          SPECIFIC_NAME SQL SQLCODE SQLERROR SQLEXCEPTION SQLSTATE
+          SQLWARNINIG STABLE START STATE STATEMENT STATIC STATISTICS
+          STDIN STDOUT STORAGE STRICT STRUCTURE STYPE SUBCLASS_ORIGIN
+          SUBLIST SUBSTRING SUM SYMMETRIC SYSID SYSTEM SYSTEM_USER
+          TABLE TABLE_NAME  TEMP TEMPLATE TEMPORARY TERMINATE THAN THEN
+          TIMEZONE_HOUR TIMEZONE_MINUTE TO TOAST TRAILING
+          TRANSATION TRANSACTIONS_COMMITTED TRANSACTIONS_ROLLED_BACK
+          TRANSATION_ACTIVE TRANSFORM TRANSFORMS TRANSLATE TRANSLATION
+          TREAT TRIGGER TRIGGER_CATALOG TRIGGER_NAME TRIGGER_SCHEMA TRIM
+          TRUE TRUNCATE TRUSTED TYPE UNCOMMITTED UNDER UNENCRYPTED UNION
+          UNIQUE UNKNOWN UNLISTEN UNNAMED UNNEST UNTIL UPDATE UPPER
+          USAGE USER USER_DEFINED_TYPE_CATALOG USER_DEFINED_TYPE_NAME
+          USER_DEFINED_TYPE_SCHEMA USING VACUUM VALID VALIDATOR VALUES
+          VARIABLE VERBOSE VERSION VIEW VOLATILE WHEN WHENEVER WHERE
+          WINDOW WITH WITHOUT WORK WRITE ZONE
         )
       end
 
-      # self-modifying method that loads the builtins file
-      def self.builtins
-        Kernel::load File.join(Lexers::BASE_DIR, 'matlab/keywords.rb')
-        builtins
+      def self.keywords_type
+        # sources:
+        # https://dev.mysql.com/doc/refman/5.7/en/numeric-type-overview.html
+        # https://dev.mysql.com/doc/refman/5.7/en/date-and-time-type-overview.html
+        # https://dev.mysql.com/doc/refman/5.7/en/string-type-overview.html
+        @keywords_type ||= Set.new(%w(
+            ZEROFILL UNSIGNED SIGNED SERIAL BIT TINYINT BOOL BOOLEAN SMALLINT
+            MEDIUMINT INT INTEGER BIGINT DECIMAL DEC NUMERIC FIXED FLOAT DOUBLE
+            PRECISION REAL
+            DATE DATETIME TIMESTAMP TIME YEAR
+            NATIONAL CHAR CHARACTER NCHAR BYTE
+            VARCHAR VARYING BINARY VARBINARY TINYBLOB TINYTEXT BLOB TEXT
+            MEDIUMBLOB MEDIUMTEXT LONGBLOB LONGTEXT ENUM
+        ))
       end
 
       state :root do
-        rule %r/\s+/m, Text # Whitespace
-        rule %r([{]%.*?%[}])m, Comment::Multiline
-        rule %r/%.*$/, Comment::Single
-        rule %r/([.][.][.])(.*?)$/ do
-          groups(Keyword, Comment)
-        end
+        rule %r/\s+/m, Text
+        rule %r/--.*/, Comment::Single
+        rule %r(/\*), Comment::Multiline, :multiline_comments
+        rule %r/\d+/, Num::Integer
+        rule %r/'/, Str::Single, :single_string
+        # A double-quoted string refers to a database object in our default SQL
+        # dialect, which is apropriate for e.g. MS SQL and PostgreSQL.
+        rule %r/"/, Name::Variable, :double_string
+        rule %r/`/, Name::Variable, :backtick
 
-        rule %r/^(!)(.*?)(?=%|$)/ do |m|
-          token Keyword, m[1]
-          delegate Shell, m[2]
-        end
-
-
-        rule %r/[a-zA-Z][_a-zA-Z0-9]*/m do |m|
-          match = m[0]
-          if self.class.keywords.include? match
-            token Keyword
-          elsif self.class.builtins.include? match
+        rule %r/\w[\w\d]*/ do |m|
+          if self.class.keywords_type.include? m[0].upcase
             token Name::Builtin
+          elsif self.class.keywords.include? m[0].upcase
+            token Keyword
           else
             token Name
           end
         end
 
-        rule %r{[(){};:,\/\\\]\[]}, Punctuation
-
-        rule %r/~=|==|<<|>>|[-~+\/*%=<>&^|.@]/, Operator
-
-
-        rule %r/(\d+\.\d*|\d*\.\d+)(e[+-]?[0-9]+)?/i, Num::Float
-        rule %r/\d+e[+-]?[0-9]+/i, Num::Float
-        rule %r/\d+L/, Num::Integer::Long
-        rule %r/\d+/, Num::Integer
-
-        rule %r/'(?=(.*'))/, Str::Single, :chararray
-        rule %r/"(?=(.*"))/, Str::Double, :string
-        rule %r/'/, Operator
+        rule %r([+*/<>=~!@#%&|?^-]), Operator
+        rule %r/[;:()\[\]\{\},.]/, Punctuation
       end
 
-      state :chararray do
-        rule %r/[^']+/, Str::Single
+      state :multiline_comments do
+        rule %r(/[*]), Comment::Multiline, :multiline_comments
+        rule %r([*]/), Comment::Multiline, :pop!
+        rule %r([^/*]+), Comment::Multiline
+        rule %r([/*]), Comment::Multiline
+      end
+
+      state :backtick do
+        rule %r/\\./, Str::Escape
+        rule %r/``/, Str::Escape
+        rule %r/`/, Name::Variable, :pop!
+        rule %r/[^\\`]+/, Name::Variable
+      end
+
+      state :single_string do
+        rule %r/\\./, Str::Escape
         rule %r/''/, Str::Escape
         rule %r/'/, Str::Single, :pop!
+        rule %r/[^\\']+/, Str::Single
       end
 
-      state :string do
-        rule %r/[^"]+/, Str::Double
+      state :double_string do
+        rule %r/\\./, Str::Escape
         rule %r/""/, Str::Escape
-        rule %r/"/, Str::Double, :pop!
+        rule %r/"/, Name::Variable, :pop!
+        rule %r/[^\\"]+/, Name::Variable
       end
     end
   end
