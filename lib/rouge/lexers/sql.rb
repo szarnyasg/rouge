@@ -678,6 +678,7 @@ module Rouge
           READ_ONLY
           PARQUET
           UNCOMPRESSED
+          CODEC
           SNAPPY
           GZIP
           LZO
