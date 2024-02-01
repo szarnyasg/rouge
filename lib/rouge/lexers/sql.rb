@@ -1534,6 +1534,7 @@ module Rouge
           st_perimeter_spheroid
           ST_Perimeter_Spheroid
           st_point
+          ST_Point
           st_point2d
           st_point2dfromwkb
           st_point3d
