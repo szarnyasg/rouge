@@ -706,6 +706,7 @@ module Rouge
           KEY_ID
           PERSISTENT
           PROVIDER
+          REGION
       ))
       end
 
