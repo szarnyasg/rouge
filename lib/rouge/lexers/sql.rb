@@ -699,6 +699,13 @@ module Rouge
           LAYER_CREATION_OPTIONS
           ALLOW_MOVED_PATHS
           PER_THREAD_OUTPUT
+          SECRET
+          GCS
+          R2
+          S3
+          KEY_ID
+          PERSISTENT
+          PROVIDER
       ))
       end
 
