@@ -1697,7 +1697,8 @@ module Rouge
         rule %r/\s+/m, Text
         rule %r/--.*/, Comment::Single
         rule %r(/\*), Comment::Multiline, :multiline_comments
-        rule %r/\d+/, Num::Integer
+        rule %r/-?[\d_E]+/, Num::Integer
+        rule %r/-?[\d_E]+.[\d_E]+/, Num::Float
         rule %r/'/, Str::Single, :single_string
         # A double-quoted string refers to a database object in our default SQL
         # dialect, which is appropriate for e.g. PostgreSQL and DuckDB.
