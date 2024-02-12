@@ -1706,13 +1706,14 @@ module Rouge
         rule %r/\s+/m, Text
         rule %r/--.*/, Comment::Single
         rule %r(/\*), Comment::Multiline, :multiline_comments
-        rule %r/-?[\d_E]+\.[\d_E]+/, Num::Float
-        rule %r/-?[\d_E]+/, Num::Integer
         rule %r/'/, Str::Single, :single_string
         # A double-quoted string refers to a database object in our default SQL
         # dialect, which is appropriate for e.g. PostgreSQL and DuckDB.
         rule %r/"/, Name::Variable, :double_string
         rule %r/`/, Name::Variable, :backtick
+        # Numbers
+        rule %r/-?[\d_E]+\.[\d_E]+/, Num::Float
+        rule %r/-?[\d_E]+/, Num::Integer
 
         # Strings 'something(' are candidates to be treated as function names
         rule %r/(\w[\w\d]*)(\()/ do |m|
