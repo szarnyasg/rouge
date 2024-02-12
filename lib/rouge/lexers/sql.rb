@@ -700,6 +700,7 @@ module Rouge
           ALLOW_MOVED_PATHS
           PER_THREAD_OUTPUT
           SECRET
+          AZURE
           GCS
           R2
           S3
