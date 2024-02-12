@@ -715,6 +715,7 @@ module Rouge
           HTTP_PROXY
           PROXY_USER_NAME
           PROXY_PASSWORD
+          ACCOUNT_ID
       ))
       end
 
