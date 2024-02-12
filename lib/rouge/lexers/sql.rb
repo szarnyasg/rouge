@@ -708,6 +708,13 @@ module Rouge
           PERSISTENT
           PROVIDER
           REGION
+          CONNECTION_STRING
+          ACCOUNT_NAME
+          CONFIG
+          CREDENTIAL_CHAIN
+          HTTP_PROXY
+          PROXY_USER_NAME
+          PROXY_PASSWORD
       ))
       end
 
