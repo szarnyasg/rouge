@@ -1011,6 +1011,7 @@ module Rouge
           duckdb_indexes
           duckdb_keywords
           duckdb_schemas
+          duckdb_secrets
           duckdb_sequences
           duckdb_settings
           duckdb_tables
@@ -1701,6 +1702,7 @@ module Rouge
           static_table
           triple_add
           myavg
+          which_secret
         ))
       end
 
