@@ -716,6 +716,7 @@ module Rouge
           PROXY_USER_NAME
           PROXY_PASSWORD
           ACCOUNT_ID
+          ENCRYPTION_CONFIG
       ))
       end
 
