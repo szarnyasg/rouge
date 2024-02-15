@@ -1703,6 +1703,9 @@ module Rouge
           triple_add
           myavg
           which_secret
+          parse_path
+          read_blob
+          read_text
         ))
       end
 
