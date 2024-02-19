@@ -718,6 +718,8 @@ module Rouge
           ACCOUNT_ID
           ENCRYPTION_CONFIG
           ENDPOINT
+          DATEFORMAT
+          TIMESTAMPFORMAT
       ))
       end
 
