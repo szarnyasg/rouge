@@ -1443,6 +1443,7 @@ module Rouge
           signbit
           sin
           skewness
+          sniff_csv
           split
           split_part
           sql_auto_complete
