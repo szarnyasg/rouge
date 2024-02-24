@@ -1744,10 +1744,11 @@ module Rouge
           end
         end
 
-        # Strings 'something' are not candidates to be treated as function names
+        # Strings 'something' (without an opening parenthesis) are not candidates to be treated
+        # as function names.
         # The rationale behind this is that many function names are common words
         # (e.g., version, month, year), and we do *not* want these to be highlighted
-        # as function names.
+        # as function names if they are not followed by a parenthesis.
         rule %r/\w[\w\d]*/ do |m|
           if self.class.keywords_type.include? m[0]
             token Name::Builtin
