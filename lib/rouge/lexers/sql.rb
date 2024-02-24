@@ -136,7 +136,6 @@ module Rouge
           CREATEDB
           CREATEUSER
           CROSS
-          CSV
           CUBE
           CURRENT
           CURRENT_DATE
@@ -166,7 +165,6 @@ module Rouge
           DEFINED
           DEFINER
           DELETE
-          DELIMITER
           DELIMITERS
           DEPENDS
           DEREF
@@ -201,7 +199,6 @@ module Rouge
           END-EXEC
           ENUM
           EQUALS
-          ESCAPE
           ESCEPTION
           EVENT
           EVERY
@@ -254,7 +251,6 @@ module Rouge
           GROUPING_ID
           HANDLER
           HAVING
-          HEADER
           HIERARCHY
           HOLD
           HOST
@@ -506,6 +502,7 @@ module Rouge
           SEARCH
           SECOND
           SECONDS
+          SECRET
           SECURITY
           SELECT
           SELF
@@ -671,56 +668,6 @@ module Rouge
           YEARS
           YES
           ZONE
-          AUTO_DETECT
-          FORMAT
-          READ_ONLY
-          PARQUET
-          UNCOMPRESSED
-          CODEC
-          SNAPPY
-          GZIP
-          LZO
-          BROTLI
-          LZ4
-          ZSTD
-          FIELD_IDS
-          ROW_GROUP_SIZE
-          PARTITION_BY
-          OVERWRITE_OR_IGNORE
-          FILENAME_PATTERN
-          USE_TMP_FILE
-          AUTO
-          UNSTRUCTURED
-          NEWLINE_DELIMITED
-          GDAL
-          DRIVER
-          LAYER_CREATION_OPTIONS
-          PER_THREAD_OUTPUT
-          SECRET
-          AZURE
-          GCS
-          R2
-          S3
-          KEY_ID
-          PERSISTENT
-          PROVIDER
-          REGION
-          CONNECTION_STRING
-          ACCOUNT_NAME
-          CONFIG
-          CREDENTIAL_CHAIN
-          HTTP_PROXY
-          PROXY_USER_NAME
-          PROXY_PASSWORD
-          ACCOUNT_ID
-          ENCRYPTION_CONFIG
-          ENDPOINT
-          DATEFORMAT
-          TIMESTAMPFORMAT
-          TENANT_ID
-          CLIENT_ID
-          CLIENT_SECRET
-          CLIENT_CERTIFICATE_PATH
       ))
       end
 
@@ -816,13 +763,91 @@ module Rouge
           BOX_2D
           WKB_BLOB
           GeometryType
+          CSV
+          PARQUET
           SQLITE
+          BROTLI
+          GZIP
+          LZ4
+          LZO
+          SNAPPY
+          UNCOMPRESSED
+          ZSTD
+          AUTO
+          NEWLINE_DELIMITED
+          UNSTRUCTURED
+          ACCOUNT_ID
+          CLIENT_CERTIFICATE_PATH
+          CLIENT_ID
+          CLIENT_SECRET
+          CREDENTIAL_CHAIN
+          CONFIG
+          PROVIDER
+          AZURE
+          GCS
+          R2
+          S3
+          KEY_ID
+          GDAL
+          PERSISTENT
+          ENDPOINT
         ))
       end
 
       def self.option_names
         @option_names ||= Set.new(%w(
-        ALLOW_MOVED_PATHS
+          ACCOUNT_NAME
+          ALL_VARCHAR
+          ALLOW_MOVED_PATHS
+          ALLOW_QUOTED_NULLS
+          AUTO_DETECT
+          AUTO_TYPE_CANDIDATES
+          CODEC
+          COLUMNS
+          COMPRESSION
+          CONNECTION_STRING
+          DATEFORMAT
+          DECIMAL_SEPARATOR
+          DELIM
+          DELIMITER
+          DRIVER
+          ENCRYPTION_CONFIG
+          ESCAPE
+          FIELD_IDS
+          FILENAME
+          FILENAME_PATTERN
+          FORCE_NOT_NULL
+          FORMAT
+          HEADER
+          HIVE_PARTITIONING
+          HTTP_PROXY
+          IGNORE_ERRORS
+          LAYER_CREATION_OPTIONS
+          MAX_LINE_SIZE
+          NAMES
+          NEW_LINE
+          NORMALIZE_NAMES
+          NULL_PADDING
+          NULLSTR
+          OVERWRITE_OR_IGNORE
+          PARALLEL
+          PARTITION_BY
+          PER_THREAD_OUTPUT
+          PROXY_PASSWORD
+          PROXY_USER_NAME
+          QUOTE
+          READ_ONLY
+          RECURSIVE
+          REGION
+          ROW_GROUP_SIZE
+          SAMPLE_SIZE
+          SKIP
+          SRS
+          TENANT_ID
+          TIMESTAMPFORMAT
+          TYPES
+          UNION_BY_NAME
+          USE_TMP_FILE
         ))
       end
 
