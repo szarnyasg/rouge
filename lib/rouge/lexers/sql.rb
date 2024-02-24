@@ -720,6 +720,10 @@ module Rouge
           ENDPOINT
           DATEFORMAT
           TIMESTAMPFORMAT
+          TENANT_ID
+          CLIENT_ID
+          CLIENT_SECRET
+          CLIENT_CERTIFICATE_PATH
       ))
       end
 
