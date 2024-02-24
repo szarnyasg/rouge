@@ -13,6 +13,8 @@ module Rouge
       # list is taken from https://github.com/szarnyasg/duckdb/tree/main/third_party/libpg_query/grammar/keywords
       def self.keywords
         @keywords ||= Set.new(%w(
+          true
+          false
           ABORT
           ABS
           ABSOLUTE
@@ -218,8 +220,6 @@ module Rouge
           EXTENSION
           EXTERNAL
           EXTRACT
-          false
-          FALSE
           FAMILY
           FETCH
           FILTER
@@ -601,8 +601,6 @@ module Rouge
           TRIGGER_NAME
           TRIGGER_SCHEMA
           TRIM
-          true
-          TRUE
           TRUNCATE
           TRUSTED
           TRY_CAST
