@@ -695,7 +695,6 @@ module Rouge
           GDAL
           DRIVER
           LAYER_CREATION_OPTIONS
-          ALLOW_MOVED_PATHS
           PER_THREAD_OUTPUT
           SECRET
           AZURE
@@ -818,6 +817,12 @@ module Rouge
           WKB_BLOB
           GeometryType
           SQLITE
+        ))
+      end
+
+      def self.option_names
+        @option_names ||= Set.new(%w(
+        ALLOW_MOVED_PATHS
         ))
       end
 
@@ -1754,6 +1759,8 @@ module Rouge
             token Name::Builtin
           elsif self.class.keywords.include? m[0]
             token Keyword
+          elsif self.class.option_names.include? m[0].upcase
+            token Name::Class
           else
             token Name
           end
