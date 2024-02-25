@@ -781,6 +781,7 @@ module Rouge
           CLIENT_SECRET
           CREDENTIAL_CHAIN
           CONFIG
+          REGION
           PROVIDER
           AZURE
           GCS
@@ -837,7 +838,6 @@ module Rouge
           QUOTE
           READ_ONLY
           RECURSIVE
-          REGION
           ROW_GROUP_SIZE
           SAMPLE_SIZE
           SKIP
@@ -847,6 +847,8 @@ module Rouge
           TYPES
           UNION_BY_NAME
           USE_TMP_FILE
+          LAYER
+          OPEN_OPTIONS
         ))
       end
 
