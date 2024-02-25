@@ -1785,7 +1785,7 @@ module Rouge
           elsif self.class.keywords.include? m[0]
             token Keyword
           elsif self.class.option_names.include? m[0].upcase
-            token Name::Class
+            token Name::Property
           else
             token Name
           end
