@@ -109,7 +109,6 @@ module Rouge
           COMMIT
           COMMITTED
           COMPLETION
-          COMPRESSION
           CONCURRENTLY
           CONDITION_NUMBER
           CONFIGURATION
