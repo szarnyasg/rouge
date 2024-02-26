@@ -43,7 +43,7 @@ module Rouge
         groups users who date arch nproc uname hostname hostid uptime chcon
         runcon chroot env nice nohup stdbuf timeout kill sleep factor numfmt
         seq tar grep sudo awk sed gzip gunzip apt apt-get yum apk add brew
-        upgrade update python python3 pip pip3
+        upgrade update python python3 pip pip3 unzip duckdb
       ).join('|')
 
       state :basic do
