@@ -822,6 +822,8 @@ module Rouge
           HIVE_PARTITIONING
           HTTP_PROXY
           IGNORE_ERRORS
+          REJECTS_TABLE
+          REJECTS_RECOVERY_COLUMNS
           LAYER_CREATION_OPTIONS
           MAX_LINE_SIZE
           NAMES
