@@ -851,6 +851,8 @@ module Rouge
           USE_TMP_FILE
           LAYER
           OPEN_OPTIONS
+          SET_REGION
+          REDACT_SECRET
         ))
       end
 
