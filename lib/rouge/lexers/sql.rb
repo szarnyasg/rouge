@@ -694,6 +694,7 @@ module Rouge
           FLOAT8
           GUID
           HUGEINT
+          INET
           INT
           INT1
           INT128
@@ -779,6 +780,7 @@ module Rouge
           CLIENT_CERTIFICATE_PATH
           CLIENT_ID
           CLIENT_SECRET
+          SERVICE_PRINCIPAL
           CREDENTIAL_CHAIN
           CONFIG
           REGION
@@ -791,12 +793,16 @@ module Rouge
           GDAL
           PERSISTENT
           ENDPOINT
+          CONNECTION_STRING
+          HTTP_PROXY
+          PROXY_PASSWORD
+          PROXY_USER_NAME
+          ACCOUNT_NAME
         ))
       end
 
       def self.option_names
         @option_names ||= Set.new(%w(
-          ACCOUNT_NAME
           ALL_VARCHAR
           ALLOW_MOVED_PATHS
           ALLOW_QUOTED_NULLS
@@ -805,7 +811,6 @@ module Rouge
           CODEC
           COLUMNS
           COMPRESSION
-          CONNECTION_STRING
           DATEFORMAT
           DECIMAL_SEPARATOR
           DELIM
@@ -820,7 +825,6 @@ module Rouge
           FORMAT
           HEADER
           HIVE_PARTITIONING
-          HTTP_PROXY
           IGNORE_ERRORS
           REJECTS_TABLE
           REJECTS_RECOVERY_COLUMNS
@@ -835,8 +839,6 @@ module Rouge
           PARALLEL
           PARTITION_BY
           PER_THREAD_OUTPUT
-          PROXY_PASSWORD
-          PROXY_USER_NAME
           QUOTE
           READ_ONLY
           RECURSIVE
@@ -853,6 +855,9 @@ module Rouge
           OPEN_OPTIONS
           SET_REGION
           REDACT_SECRET
+          SF
+          CHILDREN
+          STEP
         ))
       end
 
@@ -1605,7 +1610,9 @@ module Rouge
           ST_PointOnSurface
           st_polygon2dfromwkb
           st_read
+          ST_Read
           st_readosm
+          ST_ReadOsm
           st_reduceprecision
           ST_ReducePrecision
           st_removerepeatedpoints
