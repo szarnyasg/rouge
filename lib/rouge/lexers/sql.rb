@@ -198,7 +198,7 @@ module Rouge
           END-EXEC
           ENUM
           EQUALS
-          ESCEPTION
+          ESCAPE
           EVENT
           EVERY
           EXCEPT
@@ -667,6 +667,9 @@ module Rouge
           YEARS
           YES
           ZONE
+          NOACCENT
+          NOCASE
+          DE
       ))
       end
 
@@ -817,7 +820,6 @@ module Rouge
           DELIMITER
           DRIVER
           ENCRYPTION_CONFIG
-          ESCAPE
           FIELD_IDS
           FILENAME
           FILENAME_PATTERN
@@ -825,9 +827,11 @@ module Rouge
           FORMAT
           HEADER
           HIVE_PARTITIONING
+          HIVE_TYPES
           IGNORE_ERRORS
           REJECTS_TABLE
           REJECTS_RECOVERY_COLUMNS
+          RECORDS
           LAYER_CREATION_OPTIONS
           MAX_LINE_SIZE
           NAMES
@@ -1797,6 +1801,7 @@ module Rouge
             token Name::Builtin
           elsif self.class.keywords.include? m[0]
             token Keyword
+          # TODO: the lowercase variant should only match if it's followed by ' ?:=' or ' ?='
           elsif self.class.option_names.include? m[0].upcase
             token Name::Property
           else
