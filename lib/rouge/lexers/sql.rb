@@ -1758,6 +1758,10 @@ module Rouge
           parse_path
           read_blob
           read_text
+          dynamic_aggregates
+          dynamic_aggregates_any_cte_any_func
+          any_func
+          custom_summarize
         ))
       end
 
