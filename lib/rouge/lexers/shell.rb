@@ -44,7 +44,8 @@ module Rouge
         runcon chroot env nice nohup stdbuf timeout kill sleep factor numfmt
         seq tar grep sudo awk sed gzip gunzip apt apt-get yum apk add brew
         upgrade update python python3 pip pip3 unzip duckdb npm cargo go get
-        winget conda mamba make ninja
+        winget conda mamba make ninja cmake git g++ ninja-build
+        libssl-dev openssl-devel
       ).join('|')
 
       state :basic do
