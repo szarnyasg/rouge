@@ -1753,7 +1753,6 @@ module Rouge
           plus_one
           static_table
           triple_add
-          myavg
           which_secret
           parse_path
           read_blob
@@ -1762,6 +1761,8 @@ module Rouge
           dynamic_aggregates_any_cte_any_func
           any_func
           custom_summarize
+          my_macro
+          my_avg
         ))
       end
 
