@@ -772,6 +772,7 @@ module Rouge
           BROTLI
           GZIP
           LZ4
+          LZ4_RAW
           LZO
           SNAPPY
           UNCOMPRESSED
