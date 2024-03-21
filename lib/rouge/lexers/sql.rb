@@ -769,6 +769,11 @@ module Rouge
           CSV
           PARQUET
           SQLITE
+          POSTGRES
+          MYSQL
+          SQLITE_SCANNER
+          POSTGRES_SCANNER
+          MYSQL_SCANNER
           BROTLI
           GZIP
           LZ4
@@ -1342,6 +1347,9 @@ module Rouge
           month
           monthname
           multiply
+          mysql_clear_cache
+          mysql_execute
+          mysql_query
           nextafter
           nextval
           nfc_normalize
@@ -1388,6 +1396,7 @@ module Rouge
           platform
           position
           postgres_attach
+          postgres_execute
           postgres_query
           postgres_scan
           postgres_scan_pushdown
