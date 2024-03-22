@@ -1773,6 +1773,7 @@ module Rouge
           custom_summarize
           my_macro
           my_avg
+          url_scheme
         ))
       end
 
