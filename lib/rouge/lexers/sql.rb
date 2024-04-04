@@ -807,6 +807,7 @@ module Rouge
           PROXY_PASSWORD
           PROXY_USER_NAME
           ACCOUNT_NAME
+          POSTGRES_BINARY
         ))
       end
 
