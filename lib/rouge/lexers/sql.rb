@@ -851,6 +851,7 @@ module Rouge
           PARTITION_BY
           PER_THREAD_OUTPUT
           QUOTE
+          READONLY
           READ_ONLY
           RECURSIVE
           ROW_GROUP_SIZE
