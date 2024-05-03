@@ -696,6 +696,7 @@ module Rouge
           FLOAT4
           FLOAT8
           GUID
+          HNSW
           HUGEINT
           INET
           INT
