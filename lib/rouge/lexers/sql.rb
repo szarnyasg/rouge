@@ -214,6 +214,7 @@ module Rouge
           EXPORT
           EXPORT_STATE
           EXTENSION
+          EXTENSIONS
           EXTERNAL
           EXTRACT
           FAMILY
