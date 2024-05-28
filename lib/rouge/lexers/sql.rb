@@ -1792,8 +1792,8 @@ module Rouge
         rule %r/"/, Name::Variable, :double_string
         rule %r/`/, Name::Variable, :backtick
         # Numbers
-        rule %r/-?\d[\d_]*\.\d[\d_]*(E-?\d[\d_]*(\.\d[\d_]*)?)?/, Num::Float
-        rule %r/-?\d[\d_]*(E-?\d[\d_]*)?/, Num::Integer
+        rule %r/-?\d[\d_]*\.\d[\d_]*([Ee]-?\d[\d_]*(\.\d[\d_]*)?)?/, Num::Float
+        rule %r/-?\d[\d_]*([Ee]-?\d[\d_]*)?/, Num::Integer
 
         # Strings 'something(' are candidates to be treated as function names
         rule %r/(\w[\w\d]*)(\()/ do |m|
