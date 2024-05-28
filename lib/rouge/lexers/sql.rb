@@ -1047,6 +1047,7 @@ module Rouge
           decimal_sub
           decode
           degrees
+          delta_scan
           disable_checkpoint_on_shutdown
           disable_object_cache
           disable_optimizer
