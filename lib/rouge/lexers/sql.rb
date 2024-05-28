@@ -793,6 +793,8 @@ module Rouge
           CLIENT_SECRET
           SERVICE_PRINCIPAL
           CREDENTIAL_CHAIN
+          HUGGINGFACE
+          TOKEN
           CONFIG
           REGION
           PROVIDER
