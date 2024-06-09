@@ -1781,6 +1781,7 @@ module Rouge
           my_macro
           my_avg
           url_scheme
+          store_rejects
         ))
       end
 
