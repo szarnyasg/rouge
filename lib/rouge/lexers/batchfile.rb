@@ -4,156 +4,187 @@
 module Rouge
   module Lexers
     class Batchfile < RegexLexer
-      title "Batchfile"
-      desc "Windows Batch File"
+      title "Batch"
+      desc "Various shell languages, including sh and bash (multiline)"
+      tag 'batch'
 
-      tag 'batchfile'
-      aliases 'bat', 'batch', 'dosbatch', 'winbatch'
-      filenames '*.bat', '*.cmd'
-
-      mimetypes 'application/bat', 'application/x-bat', 'application/x-msdos-program'
-
-      def self.keywords
-        @keywords ||= %w(
-          if else for in do goto call exit
-        )
+      def self.detect?(text)
+        return true if text.shebang?(/(ba|z|k)?sh/)
       end
 
-      def self.operator_words
-        @operator_words ||= %w(
-          exist defined errorlevel cmdextversion not equ neq lss leq gtr geq
-        )
-      end
+      KEYWORDS = %w(
+        if fi else while do done for then return function
+        select continue until esac elif in
+      ).join('|')
 
-      def self.devices
-        @devices ||= %w(
-          con prn aux nul com1 com2 com3 com4 com5 com6 com7 com8 com9 lpt1 lpt2
-          lpt3 lpt4 lpt5 lpt6 lpt7 lpt8 lpt9
-        )
-      end
+      BUILTINS = %w(
+        alias bg bind break builtin caller cd command compgen
+        complete declare dirs disown enable eval exec exit
+        export false fc fg getopts hash help history jobs let
+        local logout mapfile popd pushd pwd read readonly set
+        shift shopt source suspend test time times trap true type
+        typeset ulimit umask unalias unset wait
 
-      def self.builtin_commands
-        @builtin_commands ||= %w(
-          assoc attrib break bcdedit cacls cd chcp chdir chkdsk chkntfs choice
-          cls cmd color comp compact convert copy date del dir diskpart doskey
-          dpath driverquery echo endlocal erase fc find findstr format fsutil
-          ftype gpresult graftabl help icacls label md mkdir mklink mode more
-          move openfiles path pause popd print prompt pushd rd recover ren
-          rename replace rmdir robocopy setlocal sc schtasks shift shutdown sort
-          start subst systeminfo takeown tasklist taskkill time timeout title
-          tree type ver verify vol xcopy waitfor wmic
-        )
-      end
-
-      def self.other_commands
-        @other_commands ||= %w(
-          addusers admodcmd ansicon arp at bcdboot bitsadmin browstat certreq
-          certutil change cidiag cipher cleanmgr clip cmdkey compress convertcp
-          coreinfo csccmd csvde cscript curl debug defrag delprof deltree devcon
-          diamond dirquota diruse diskshadow diskuse dism dnscmd dsacls dsadd
-          dsget dsquery dsmod dsmove dsrm dsmgmt dsregcmd edlin eventcreate
-          expand extract fdisk fltmc forfiles freedisk ftp getmac gpupdate
-          hostname ifmember inuse ipconfig kill lgpo lodctr logman logoff
-          logtime makecab mapisend mbsacli mem mountvol moveuser msg mshta
-          msiexec msinfo32 mstsc nbtstat net net1 netdom netsh netstat nlsinfo
-          nltest now nslookup ntbackup ntdsutil ntoskrnl ntrights nvspbind
-          pathping perms ping portqry powercfg pngout pnputil printbrm prncnfg
-          prnmngr procdump psexec psfile psgetsid psinfo pskill pslist
-          psloggedon psloglist pspasswd psping psservice psshutdown pssuspend
-          qbasic qgrep qprocess query quser qwinsta rasdial reg reg1 regdump
-          regedt32 regsvr32 regini reset restore rundll32 rmtshare route rpcping
-          run runas scandisk setspn setx sfc share shellrunas shortcut sigcheck
-          sleep slmgr strings subinacl sysmon telnet tftp tlist touch tracerpt
-          tracert tscon tsdiscon tskill tttracer typeperf tzutil undelete
-          unformat verifier vmconnect vssadmin w32tm wbadmin wecutil wevtutil
-          wget where whoami windiff winrm winrs wpeutil wpr wusa wuauclt wscript
-        )
-      end
-
-      def self.attributes
-        @attributes ||= %w(
-          on off disable enableextensions enabledelayedexpansion
-        )
-      end
+        cat tac nl od base32 base64 fmt pr fold head tail split csplit
+        wc sum cksum b2sum md5sum sha1sum sha224sum sha256sum sha384sum
+        sha512sum sort shuf uniq comm ptx tsort cut paste join tr expand
+        unexpand ls dir vdir dircolors cp dd install mv rm shred link ln
+        mkdir mkfifo mknod readlink rmdir unlink chown chgrp chmod touch
+        df du stat sync truncate echo printf yes expr tee basename dirname
+        pathchk mktemp realpath pwd stty printenv tty id logname whoami
+        groups users who date arch nproc uname hostname hostid uptime chcon
+        runcon chroot env nice nohup stdbuf timeout kill sleep factor numfmt
+        seq tar grep sudo awk sed gzip gunzip apt apt-get yum apk add brew
+        upgrade update python python3 pip pip3 unzip duckdb npm cargo go get
+        winget conda mamba make ninja cmake git g\+\+ ninja-build
+        libssl-dev openssl-devel wget curl aws tree
+      ).join('|')
 
       state :basic do
-        # Comments
-        rule %r/@?\brem\b.*$/i, Comment
+        rule %r/#.*$/, Comment
 
-        # Empty Labels
-        rule %r/^::.*$/, Comment
+        rule %r/\b(#{KEYWORDS})\s*\b/, Keyword
+        rule %r/\bcase\b/, Keyword, :case
 
-        # Labels
-        rule %r/:[a-z]+/i, Name::Label
+        rule %r/\b(#{BUILTINS})\s*\b(?!(\.|-))/, Name::Builtin
+        rule %r/[.](?=\s)/, Name::Builtin
 
-        rule %r/([a-z]\w*)(\.exe|com|bat|cmd|msi)?/i do |m|
-          if self.class.devices.include? m[1]
-            groups Keyword::Reserved, Error
-          elsif self.class.keywords.include? m[1]
-            groups Keyword, Error
-          elsif self.class.operator_words.include? m[1]
-            groups Operator::Word, Error
-          elsif self.class.builtin_commands.include? m[1]
-            token Name::Builtin
-          elsif self.class.other_commands.include? m[1]
-            token Name::Builtin
-          elsif self.class.attributes.include? m[1]
-            groups Name::Attribute, Error
-          elsif "set".casecmp m[1]
-            groups Keyword::Declaration, Error
+        rule %r/(\b\w+)(=)/ do
+          groups Name::Variable, Operator
+        end
+
+        rule %r/[\[\]{}()!=>]/, Operator
+        rule %r/&&|\|\|/, Operator
+
+        # here-string
+        rule %r/<<</, Operator
+
+        rule %r/(<<-?)(\s*)(['"]?)(\\?)(\w+)(\3)/ do |m|
+          groups Operator, Text, Str::Heredoc, Str::Heredoc, Name::Constant, Str::Heredoc
+          @heredocstr = Regexp.escape(m[5])
+          push :heredoc
+        end
+      end
+
+      state :heredoc do
+        rule %r/\n/, Str::Heredoc, :heredoc_nl
+        rule %r/[^$\n\\]+/, Str::Heredoc
+        mixin :interp
+        rule %r/[$]/, Str::Heredoc
+      end
+
+      state :heredoc_nl do
+        rule %r/\s*(\w+)\s*\n/ do |m|
+          if m[1] == @heredocstr
+            token Name::Constant
+            pop! 2
           else
-            token Text
+            token Str::Heredoc
           end
         end
 
-        rule %r/((?:[\/\+]|--?)[a-z]+)\s*/i, Name::Attribute
-
-        mixin :expansions
-
-        rule %r/[<>&|(){}\[\]\-+=;,~?*]/, Operator
+        rule(//) { pop! }
       end
 
-      state :escape do
-        rule %r/\^./m, Str::Escape
-      end
-
-      state :expansions do
-        # Normal and Delayed expansion
-        rule %r/[%!]+([a-z_$@#]+)[%!]+/i, Name::Variable
-        # For Variables
-        rule %r/(\%+~?[a-z]+\d?)/i, Name::Variable::Magic
-      end
 
       state :double_quotes do
-        mixin :escape
-        rule %r/["]/, Str::Double, :pop!
-        mixin :expansions
-        rule %r/[^\^"%!]+/, Str::Double
+        # NB: "abc$" is literally the string abc$.
+        # Here we prevent :interp from interpreting $" as a variable.
+        rule %r/(?:\$#?)?"/, Str::Double, :pop!
+        mixin :interp
+        rule %r/[^"`\\$]+/, Str::Double
+      end
+
+      state :ansi_string do
+        rule %r/\\./, Str::Escape
+        rule %r/[^\\']+/, Str::Single
+        mixin :single_quotes
       end
 
       state :single_quotes do
-        mixin :escape
-        rule %r/[']/, Str::Single, :pop!
-        mixin :expansions
-        rule %r/[^\^'%!]+/, Str::Single
-      end
-
-      state :backtick do
-        mixin :escape
-        rule %r/[`]/, Str::Backtick, :pop!
-        mixin :expansions
-        rule %r/[^\^`%!]+/, Str::Backtick
+        rule %r/'/, Str::Single, :pop!
+        rule %r/[^']+/, Str::Single
       end
 
       state :data do
         rule %r/\s+/, Text
-        rule %r/0x[0-9a-f]+/i, Literal::Number::Hex
-        rule %r/[0-9]/, Literal::Number
-        rule %r/["]/, Str::Double, :double_quotes
-        rule %r/[']/, Str::Single, :single_quotes
-        rule %r/[`]/, Str::Backtick, :backtick
-        rule %r/[^\s&|()\[\]{}\^=;!%+\-,"'`~?*]+/, Text
-        mixin :escape
+        rule %r/\\./, Str::Escape
+        rule %r/\$?"/, Str::Double, :double_quotes
+        rule %r/\$'/, Str::Single, :ansi_string
+
+        # single quotes are much easier than double quotes - we can
+        # literally just scan until the next single quote.
+        # POSIX: Enclosing characters in single-quotes ( '' )
+        # shall preserve the literal value of each character within the
+        # single-quotes. A single-quote cannot occur within single-quotes.
+        rule %r/'/, Str::Single, :single_quotes
+
+        rule %r/\*/, Keyword
+
+        rule %r/;/, Punctuation
+
+        rule %r/--?[\w-]+/, Name::Tag
+        rule %r/[^=\*\s{}()$"'`;\\<]+/, Text
+        rule %r/\d+(?= |\Z)/, Num
+        rule %r/</, Text
+        mixin :interp
+      end
+
+      state :curly do
+        rule %r/}/, Keyword, :pop!
+        rule %r/:-/, Keyword
+        rule %r/[a-zA-Z0-9_]+/, Name::Variable
+        rule %r/[^}:"`'$]+/, Punctuation
+        mixin :root
+      end
+
+      # the state inside $(...)
+      state :paren_interp do
+        rule %r/\)/, Str::Interpol, :pop!
+        rule %r/\(/, Operator, :paren_inner
+        mixin :root
+      end
+
+      # used to balance parentheses inside interpolation
+      state :paren_inner do
+        rule %r/\(/, Operator, :push
+        rule %r/\)/, Operator, :pop!
+        mixin :root
+      end
+
+      state :math do
+        rule %r/\)\)/, Keyword, :pop!
+        rule %r([-+*/%^|&!]|\*\*|\|\|), Operator
+        rule %r/\d+(#\w+)?/, Num
+        mixin :root
+      end
+
+      state :case do
+        rule %r/\besac\b/, Keyword, :pop!
+        rule %r/\|/, Punctuation
+        rule %r/\)/, Punctuation, :case_stanza
+        mixin :root
+      end
+
+      state :case_stanza do
+        rule %r/;;/, Punctuation, :pop!
+        mixin :root
+      end
+
+      state :backticks do
+        rule %r/`/, Str::Backtick, :pop!
+        mixin :root
+      end
+
+      state :interp do
+        rule %r/\\$/, Str::Escape # line continuation
+        rule %r/\\./, Str::Escape
+        rule %r/\$\(\(/, Keyword, :math
+        rule %r/\$\(/, Str::Interpol, :paren_interp
+        rule %r/\${#?/, Keyword, :curly
+        rule %r/`/, Str::Backtick, :backticks
+        rule %r/\$#?(\w+|.)/, Name::Variable
+        rule %r/\$[*@]/, Name::Variable
       end
 
       state :root do
