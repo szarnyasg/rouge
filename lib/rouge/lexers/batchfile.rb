@@ -37,7 +37,7 @@ module Rouge
         seq tar grep sudo awk sed gzip gunzip apt apt-get yum apk add brew
         upgrade update python python3 pip pip3 unzip duckdb npm cargo go get
         winget conda mamba make ninja cmake git g\+\+ ninja-build
-        libssl-dev openssl-devel wget curl aws tree uplot jq tldr
+        libssl-dev openssl-devel wget curl aws tree uplot jq tldr pcregrep
       ).join('|')
 
       state :basic do
