@@ -1900,6 +1900,9 @@ module Rouge
           schema
           search_path
           secret_directory
+          show_databases
+          show_tables
+          show_tables_expanded
           storage_compatibility_version
           streaming_buffer_size
           temp_directory
