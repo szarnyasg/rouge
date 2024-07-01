@@ -1806,6 +1806,7 @@ module Rouge
           checkpoint_threshold
           collations
           custom_extension_repository
+          custom_profiling_settings
           custom_user_agent
           database_list
           default_block_size
@@ -1829,6 +1830,7 @@ module Rouge
           enable_checkpoint_on_shutdown
           enable_external_access
           enable_fsst_vectors
+          enable_http_logging
           enable_http_metadata_cache
           enable_macro_dependencies
           enable_object_cache
@@ -1837,15 +1839,21 @@ module Rouge
           enable_profile
           enable_profiling
           enable_progress_bar
+          enable_progress_bar_print
           enable_server_cert_verification
           enable_verification
           enable_view_dependencies
+          errors_as_json
+          explain_output
           extension_directory
           external_threads
+          file_search_path
           force_checkpoint
           force_download
           functions
+          home_directory
           http_keep_alive
+          http_logging_output
           http_retries
           http_retry_backoff
           http_retry_wait_ms
@@ -1853,17 +1861,31 @@ module Rouge
           immediate_transaction_mode
           index_scan_max_count
           index_scan_percentage
+          integer_division
           lock_configuration
+          log_query_path
+          max_expression_depth
           max_memory
           max_temp_directory_size
           memory_limit
           metadata_info
           null_order
           old_implicit_casting
+          ordered_aggregate_threshold
+          partitioned_write_flush_threshold
           password
+          perfect_ht_threshold
+          pivot_filter_threshold
+          pivot_limit
           platform
+          prefer_range_joins
+          preserve_identifier_case
           preserve_insertion_order
           produce_arrow_string_view
+          profile_output
+          profiling_mode
+          profiling_output
+          progress_bar_time
           s3_access_key_id
           s3_endpoint
           s3_region
@@ -1875,8 +1897,11 @@ module Rouge
           s3_url_compatibility_mode
           s3_url_style
           s3_use_ssl
+          schema
+          search_path
           secret_directory
           storage_compatibility_version
+          streaming_buffer_size
           temp_directory
           threads
           TimeZone
