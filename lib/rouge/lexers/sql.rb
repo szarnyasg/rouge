@@ -1804,25 +1804,47 @@ module Rouge
           ca_cert_file
           Calendar
           checkpoint_threshold
+          collations
           custom_extension_repository
           custom_user_agent
+          database_list
           default_block_size
           default_collation
           default_null_order
           default_order
           default_secret_storage
+          disable_checkpoint_on_shutdown
+          disable_object_cache
+          disable_optimizer
+          disable_print_progress_bar
+          disable_profile
+          disable_profiling
+          disable_progress_bar
+          disable_verification
+          disable_verify_external
+          disable_verify_parallelism
+          disable_verify_serializer
           disabled_filesystems
           duckdb_api
+          enable_checkpoint_on_shutdown
           enable_external_access
           enable_fsst_vectors
           enable_http_metadata_cache
           enable_macro_dependencies
           enable_object_cache
+          enable_optimizer
+          enable_print_progress_bar
+          enable_profile
+          enable_profiling
+          enable_progress_bar
           enable_server_cert_verification
+          enable_verification
           enable_view_dependencies
           extension_directory
           external_threads
+          force_checkpoint
           force_download
+          functions
           http_keep_alive
           http_retries
           http_retry_backoff
@@ -1834,9 +1856,12 @@ module Rouge
           lock_configuration
           max_memory
           max_temp_directory_size
+          memory_limit
+          metadata_info
           null_order
           old_implicit_casting
           password
+          platform
           preserve_insertion_order
           produce_arrow_string_view
           s3_access_key_id
@@ -1856,7 +1881,12 @@ module Rouge
           threads
           TimeZone
           user
+          user_agent
           username
+          verify_external
+          verify_parallelism
+          verify_serializer
+          version
           wal_autocheckpoint
           worker_threads
         ))
