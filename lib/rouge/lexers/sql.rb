@@ -1785,6 +1785,83 @@ module Rouge
         ))
       end
 
+      def self.configuration_options
+        @configuration_options ||= Set.new(%w(
+          access_mode
+          allocator_background_threads
+          allocator_flush_threshold
+          allow_community_extensions
+          allow_extensions_metadata_mismatch
+          allow_persistent_secrets
+          allow_unredacted_secrets
+          allow_unsigned_extensions
+          arrow_large_buffer_size
+          arrow_output_list_view
+          autoinstall_extension_repository
+          autoinstall_known_extensions
+          autoload_known_extensions
+          binary_as_string
+          ca_cert_file
+          Calendar
+          checkpoint_threshold
+          custom_extension_repository
+          custom_user_agent
+          default_block_size
+          default_collation
+          default_null_order
+          default_order
+          default_secret_storage
+          disabled_filesystems
+          duckdb_api
+          enable_external_access
+          enable_fsst_vectors
+          enable_http_metadata_cache
+          enable_macro_dependencies
+          enable_object_cache
+          enable_server_cert_verification
+          enable_view_dependencies
+          extension_directory
+          external_threads
+          force_download
+          http_keep_alive
+          http_retries
+          http_retry_backoff
+          http_retry_wait_ms
+          http_timeout
+          immediate_transaction_mode
+          index_scan_max_count
+          index_scan_percentage
+          lock_configuration
+          max_memory
+          max_temp_directory_size
+          null_order
+          old_implicit_casting
+          password
+          preserve_insertion_order
+          produce_arrow_string_view
+          s3_access_key_id
+          s3_endpoint
+          s3_region
+          s3_secret_access_key
+          s3_session_token
+          s3_uploader_max_filesize
+          s3_uploader_max_parts_per_file
+          s3_uploader_thread_limit
+          s3_url_compatibility_mode
+          s3_url_style
+          s3_use_ssl
+          secret_directory
+          storage_compatibility_version
+          temp_directory
+          threads
+          TimeZone
+          user
+          username
+          wal_autocheckpoint
+          worker_threads
+        ))
+      end
+
       state :root do
         rule %r/\s+/m, Text
         rule %r/--.*/, Comment::Single
@@ -1823,10 +1900,11 @@ module Rouge
         rule %r/\w[\w\d]*/ do |m|
           if self.class.keywords_type.include? m[0]
             token Name::Builtin
-          elsif self.class.keywords.include? m[0]
+          # TODO: the lowercase variant of option_names should only match if it's followed by
+          # the regex ' ?:=' or the regex ' ?='
+          elsif self.class.keywords.include? m[0] or self.class.option_names.include? m[0].upcase
             token Keyword
-          # TODO: the lowercase variant should only match if it's followed by ' ?:=' or ' ?='
-          elsif self.class.option_names.include? m[0].upcase
+          elsif self.class.configuration_options.include? m[0]
             token Name::Property
           else
             token Name
