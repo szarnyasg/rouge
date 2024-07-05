@@ -860,6 +860,7 @@ module Rouge
           RECURSIVE
           ROW_GROUP_SIZE
           SAMPLE_SIZE
+          SEP
           SKIP
           SRS
           TENANT_ID
