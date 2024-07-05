@@ -1783,6 +1783,8 @@ module Rouge
           my_avg
           url_scheme
           store_rejects
+          h3_latlng_to_cell
+          h3_cell_to_boundary_wkt
         ))
       end
 
