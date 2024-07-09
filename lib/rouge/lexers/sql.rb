@@ -1073,6 +1073,7 @@ module Rouge
           duckdb_functions
           duckdb_indexes
           duckdb_keywords
+          duckdb_memory
           duckdb_schemas
           duckdb_secrets
           duckdb_sequences
