@@ -671,6 +671,28 @@ module Rouge
           NOACCENT
           NOCASE
           DE
+          GRAPH_TABLE
+          ACYCLIC
+          ARE
+          COST
+          DESTINATION
+          EDGE
+          ELEMENT_ID
+          GRAPH
+          GROUPS
+          KEEP
+          NODE
+          PATH
+          PATHS
+          PROPERTIES
+          PROPERTY
+          RELATIONSHIP
+          SHORTEST
+          SIMPLE
+          SOURCE
+          TRAIL
+          VERTEX
+          WALK
       ))
       end
 
