@@ -1321,6 +1321,7 @@ module Rouge
           list_select
           list_sem
           list_skewness
+          list_shuffle
           list_slice
           list_sort
           list_stddev_pop
