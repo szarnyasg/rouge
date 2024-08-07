@@ -1320,8 +1320,8 @@ module Rouge
           list_reverse_sort
           list_select
           list_sem
-          list_skewness
           list_shuffle
+          list_skewness
           list_slice
           list_sort
           list_stddev_pop
