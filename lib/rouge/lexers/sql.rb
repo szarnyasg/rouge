@@ -1811,6 +1811,8 @@ module Rouge
           h3_cell_to_boundary_wkt
           remove_idx
           valid_bsn
+          html_escape
+          html_unescape
         ))
       end
 
