@@ -1889,6 +1889,7 @@ module Rouge
           http_retry_backoff
           http_retry_wait_ms
           http_timeout
+          ieee_floating_point_ops
           immediate_transaction_mode
           index_scan_max_count
           index_scan_percentage
