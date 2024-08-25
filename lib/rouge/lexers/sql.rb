@@ -805,6 +805,7 @@ module Rouge
           LZO
           SNAPPY
           UNCOMPRESSED
+          COMPRESSION_LEVEL
           ZSTD
           AUTO
           NEWLINE_DELIMITED
