@@ -1172,6 +1172,8 @@ module Rouge
           generate_subscripts
           geomean
           geometric_mean
+          getenv
+          getvariable
           get_bit
           get_current_time
           get_current_timestamp
@@ -1353,6 +1355,9 @@ module Rouge
           make_timestamptz
           map
           map_concat
+          map_contains
+          map_contains_entry
+          map_contains_value
           map_entries
           map_extract
           map_from_entries
