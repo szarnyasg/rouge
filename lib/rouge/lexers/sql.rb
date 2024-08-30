@@ -1909,6 +1909,7 @@ module Rouge
           metadata_info
           null_order
           old_implicit_casting
+          order_by_non_integer_literal
           ordered_aggregate_threshold
           partitioned_write_flush_threshold
           password
