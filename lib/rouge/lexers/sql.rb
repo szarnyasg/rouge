@@ -1634,6 +1634,7 @@ module Rouge
           st_linestring2dfromwkb
           st_list_proj_crs
           st_makeenvelope
+          ST_MakeEnvelope
           st_makeline
           ST_MakeLine
           st_makepolygon
