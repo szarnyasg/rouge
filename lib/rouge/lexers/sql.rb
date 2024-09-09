@@ -1820,6 +1820,8 @@ module Rouge
           valid_bsn
           html_escape
           html_unescape
+          query
+          query_table
         ))
       end
 
