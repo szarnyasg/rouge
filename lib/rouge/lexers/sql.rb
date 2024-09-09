@@ -1958,6 +1958,7 @@ module Rouge
           wal_autocheckpoint
           worker_threads
           scalar_subquery_error_on_multiple_rows
+          bin_count
         ))
       end
 
