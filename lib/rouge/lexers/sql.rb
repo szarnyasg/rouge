@@ -693,6 +693,7 @@ module Rouge
           TRAIL
           VERTEX
           WALK
+          RTREE
       ))
       end
 
