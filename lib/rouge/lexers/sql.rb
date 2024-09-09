@@ -1825,6 +1825,7 @@ module Rouge
           query
           query_table
           select_from_table
+          two_x_plus_y
         ))
       end
 
