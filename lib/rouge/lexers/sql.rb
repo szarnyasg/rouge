@@ -1822,6 +1822,7 @@ module Rouge
           html_unescape
           query
           query_table
+          select_from_table
         ))
       end
 
