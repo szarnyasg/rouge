@@ -1696,6 +1696,7 @@ module Rouge
           ST_Ymax
           st_ymin
           ST_Ymin
+          st_generatepoints
           starts_with
           stats
           stddev
@@ -1956,6 +1957,7 @@ module Rouge
           version
           wal_autocheckpoint
           worker_threads
+          scalar_subquery_error_on_multiple_rows
         ))
       end
 
