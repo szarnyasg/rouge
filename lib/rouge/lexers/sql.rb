@@ -694,6 +694,7 @@ module Rouge
           VERTEX
           WALK
           RTREE
+          PORT
       ))
       end
 
