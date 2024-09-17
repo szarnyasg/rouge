@@ -1805,6 +1805,7 @@ module Rouge
           ifelse
           one
           plus_one
+          add_x
           static_table
           triple_add
           which_secret
