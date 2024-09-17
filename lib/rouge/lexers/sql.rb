@@ -808,6 +808,8 @@ module Rouge
           SNAPPY
           UNCOMPRESSED
           COMPRESSION_LEVEL
+          MIN_NODE_CAPACITY
+          MAX_NODE_CAPACITY
           ZSTD
           AUTO
           NEWLINE_DELIMITED
