@@ -1831,6 +1831,7 @@ module Rouge
           select_from_table
           two_x_plus_y
           my_summarize
+          rtree_index_dump
         ))
       end
 
