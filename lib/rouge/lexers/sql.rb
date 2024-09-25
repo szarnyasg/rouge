@@ -1832,6 +1832,9 @@ module Rouge
           two_x_plus_y
           my_summarize
           rtree_index_dump
+          assert
+          select_distinct_columns_from_table
+          build_my_enum
         ))
       end
 
