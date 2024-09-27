@@ -1835,6 +1835,7 @@ module Rouge
           assert
           select_distinct_columns_from_table
           build_my_enum
+          pivot_table
         ))
       end
 
