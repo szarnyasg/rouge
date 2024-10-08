@@ -695,6 +695,7 @@ module Rouge
           WALK
           RTREE
           PORT
+          COMPOSITE
       ))
       end
 
