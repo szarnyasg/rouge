@@ -1837,6 +1837,7 @@ module Rouge
           select_distinct_columns_from_table
           build_my_enum
           pivot_table
+          checksum
         ))
       end
 
