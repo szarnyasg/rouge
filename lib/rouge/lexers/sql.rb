@@ -1838,6 +1838,7 @@ module Rouge
           build_my_enum
           pivot_table
           checksum
+          quack
         ))
       end
 
