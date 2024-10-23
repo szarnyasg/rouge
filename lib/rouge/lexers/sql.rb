@@ -696,6 +696,8 @@ module Rouge
           RTREE
           PORT
           COMPOSITE
+          NULLS_FIRST
+          NULLS_LAST
       ))
       end
 
