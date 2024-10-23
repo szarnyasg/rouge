@@ -1980,6 +1980,16 @@ module Rouge
           worker_threads
           scalar_subquery_error_on_multiple_rows
           bin_count
+          allocator_bulk_deallocation_flush_threshold
+          arrow_lossless_conversion
+          catalog_error_max_schemas
+          http_proxy_password
+          http_proxy_username
+          http_proxy
+          max_vacuum_tasks
+          merge_join_threshold
+          nested_loop_join_threshold
+          partitioned_write_max_open_files
         ))
       end
 
