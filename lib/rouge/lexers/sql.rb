@@ -2064,14 +2064,14 @@ module Rouge
         rule %r/\\./, Str::Escape
         rule %r/''/, Str::Escape
         rule %r/'/, Str::Single, :pop!
-        rule %r/[^\\']+/, Str::Single
+        rule %r/[^']+/, Str::Single
       end
 
       state :double_string do
         rule %r/\\./, Str::Escape
         rule %r/""/, Str::Escape
         rule %r/"/, Name::Variable, :pop!
-        rule %r/[^\\"]+/, Name::Variable
+        rule %r/[^"]+/, Name::Variable
       end
     end
   end
