@@ -1841,6 +1841,8 @@ module Rouge
           pivot_table
           checksum
           quack
+          enable_http_write
+          pretty_print_integer
         ))
       end
 
