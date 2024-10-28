@@ -641,6 +641,8 @@ module Rouge
           VIEWS
           VIRTUAL
           VOLATILE
+          WEEK
+          WEEKS
           WHEN
           WHENEVER
           WHERE
