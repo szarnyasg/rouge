@@ -907,6 +907,7 @@ module Rouge
           SF
           CHILDREN
           STEP
+          BLOCK_SIZE
         ))
       end
 
