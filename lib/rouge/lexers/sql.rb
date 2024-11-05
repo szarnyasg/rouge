@@ -1995,6 +1995,8 @@ module Rouge
           merge_join_threshold
           nested_loop_join_threshold
           partitioned_write_max_open_files
+          vss_match
+          vss_join
         ))
       end
 
