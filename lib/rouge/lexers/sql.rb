@@ -700,6 +700,7 @@ module Rouge
           COMPOSITE
           NULLS_FIRST
           NULLS_LAST
+          KV_METADATA
       ))
       end
 
