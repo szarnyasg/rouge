@@ -1847,6 +1847,7 @@ module Rouge
           quack
           enable_http_write
           pretty_print_integer
+          all_flat
         ))
       end
 
