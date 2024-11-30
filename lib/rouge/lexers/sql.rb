@@ -1848,6 +1848,8 @@ module Rouge
           enable_http_write
           pretty_print_integer
           all_flat
+          vss_match
+          vss_join
         ))
       end
 
@@ -1997,8 +1999,8 @@ module Rouge
           merge_join_threshold
           nested_loop_join_threshold
           partitioned_write_max_open_files
-          vss_match
-          vss_join
+          unsafe_enable_version_guessing
+          bernoulli
         ))
       end
 
