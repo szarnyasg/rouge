@@ -851,7 +851,6 @@ module Rouge
       def self.option_names
         @option_names ||= Set.new(%w(
           ALL_VARCHAR
-          ALLOW_MOVED_PATHS
           ALLOW_QUOTED_NULLS
           AUTO_DETECT
           AUTO_TYPE_CANDIDATES
@@ -2001,6 +2000,8 @@ module Rouge
           partitioned_write_max_open_files
           unsafe_enable_version_guessing
           version_name_format
+          metadata_compression_codec
+          allow_moved_paths
           bernoulli
         ))
       end
