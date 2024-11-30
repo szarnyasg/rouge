@@ -2003,6 +2003,7 @@ module Rouge
           metadata_compression_codec
           allow_moved_paths
           bernoulli
+          python_enable_replacements
         ))
       end
 
