@@ -2000,6 +2000,7 @@ module Rouge
           nested_loop_join_threshold
           partitioned_write_max_open_files
           unsafe_enable_version_guessing
+          version_name_format
           bernoulli
         ))
       end
