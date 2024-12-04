@@ -1849,6 +1849,8 @@ module Rouge
           all_flat
           vss_match
           vss_join
+          local_clustering_coefficient
+          path_length
         ))
       end
 
