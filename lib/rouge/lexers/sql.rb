@@ -2006,6 +2006,7 @@ module Rouge
           allow_moved_paths
           bernoulli
           python_enable_replacements
+          azure_storage_connection_string
         ))
       end
 
