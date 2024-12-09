@@ -1851,6 +1851,7 @@ module Rouge
           vss_join
           local_clustering_coefficient
           path_length
+          read_avro
         ))
       end
 
