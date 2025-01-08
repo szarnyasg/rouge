@@ -848,6 +848,9 @@ module Rouge
           HTTP
           EXTRA_HTTP_HEADERS
           BEARER_TOKEN
+          HTTP_PROXY
+          HTTP_PROXY_USERNAME
+          HTTP_PROXY_PASSWORD
         ))
       end
 
