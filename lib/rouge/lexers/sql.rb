@@ -845,6 +845,9 @@ module Rouge
           PROXY_USER_NAME
           ACCOUNT_NAME
           POSTGRES_BINARY
+          HTTP
+          EXTRA_HTTP_HEADERS
+          BEARER_TOKEN
         ))
       end
 
