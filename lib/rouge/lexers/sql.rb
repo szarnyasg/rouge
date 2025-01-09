@@ -2014,6 +2014,12 @@ module Rouge
           bernoulli
           python_enable_replacements
           azure_storage_connection_string
+          enable_logging
+          disable_logging
+          enabled_loggers
+          disabled_loggers
+          logging_level
+          logging_mode
         ))
       end
 
