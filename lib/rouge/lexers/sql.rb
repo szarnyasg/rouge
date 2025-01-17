@@ -701,6 +701,14 @@ module Rouge
           NULLS_FIRST
           NULLS_LAST
           KV_METADATA
+          DELTA_BINARY_PACKED
+          DELTA_LENGTH_BYTE_ARRAY
+          BYTE_STREAM
+          SPLIT
+          PARQUET_VERSION
+          V1
+          V2
+          V3
       ))
       end
 
