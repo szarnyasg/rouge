@@ -703,8 +703,7 @@ module Rouge
           KV_METADATA
           DELTA_BINARY_PACKED
           DELTA_LENGTH_BYTE_ARRAY
-          BYTE_STREAM
-          SPLIT
+          BYTE_STREAM_SPLIT
           PARQUET_VERSION
           V1
           V2
