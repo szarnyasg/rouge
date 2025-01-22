@@ -2027,6 +2027,7 @@ module Rouge
           disabled_loggers
           logging_level
           logging_mode
+          encoding
         ))
       end
 
