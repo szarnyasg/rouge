@@ -2028,6 +2028,8 @@ module Rouge
           logging_level
           logging_mode
           encoding
+          allowed_paths
+          allowed_directories
         ))
       end
 
