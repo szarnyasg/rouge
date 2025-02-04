@@ -548,6 +548,7 @@ module Rouge
           STDIN
           STDOUT
           STORAGE
+          STORAGE_VERSION
           STORED
           STRICT
           STRIP
