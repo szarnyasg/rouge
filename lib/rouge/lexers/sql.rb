@@ -2032,6 +2032,8 @@ module Rouge
           allowed_paths
           allowed_directories
           strict_mode
+          disabled_compression_methods
+          force_compression
         ))
       end
 
