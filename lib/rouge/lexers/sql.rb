@@ -2031,6 +2031,7 @@ module Rouge
           encoding
           allowed_paths
           allowed_directories
+          strict_mode
         ))
       end
 
