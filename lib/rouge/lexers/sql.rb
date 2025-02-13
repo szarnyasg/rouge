@@ -2034,6 +2034,7 @@ module Rouge
           strict_mode
           disabled_compression_methods
           force_compression
+          asof_loop_join_threshold
         ))
       end
 
