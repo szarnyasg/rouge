@@ -1866,6 +1866,7 @@ module Rouge
           local_clustering_coefficient
           path_length
           read_avro
+          read_xlsx
         ))
       end
 
