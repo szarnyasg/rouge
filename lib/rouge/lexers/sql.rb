@@ -2036,6 +2036,7 @@ module Rouge
           disabled_compression_methods
           force_compression
           asof_loop_join_threshold
+          string_dictionary_page_size_limit
         ))
       end
 
