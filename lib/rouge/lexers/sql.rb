@@ -1867,6 +1867,7 @@ module Rouge
           path_length
           read_avro
           read_xlsx
+          read_duckbox
         ))
       end
 
