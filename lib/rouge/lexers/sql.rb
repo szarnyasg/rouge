@@ -922,6 +922,7 @@ module Rouge
           CHILDREN
           STEP
           BLOCK_SIZE
+          COLUMN_NAMES
         ))
       end
 
