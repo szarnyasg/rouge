@@ -859,6 +859,7 @@ module Rouge
           HTTP_PROXY
           HTTP_PROXY_USERNAME
           HTTP_PROXY_PASSWORD
+          URL_STYLE
         ))
       end
 
