@@ -701,14 +701,6 @@ module Rouge
           COMPOSITE
           NULLS_FIRST
           NULLS_LAST
-          KV_METADATA
-          DELTA_BINARY_PACKED
-          DELTA_LENGTH_BYTE_ARRAY
-          BYTE_STREAM_SPLIT
-          PARQUET_VERSION
-          V1
-          V2
-          V3
       ))
       end
 
@@ -806,124 +798,138 @@ module Rouge
           BOX_2D
           WKB_BLOB
           GeometryType
-          CSV
-          PARQUET
-          SQLITE
-          POSTGRES
-          MYSQL
-          SQLITE_SCANNER
-          POSTGRES_SCANNER
-          MYSQL_SCANNER
-          BROTLI
-          GZIP
-          LZ4
-          LZ4_RAW
-          LZO
-          SNAPPY
-          UNCOMPRESSED
-          COMPRESSION_LEVEL
-          MIN_NODE_CAPACITY
-          MAX_NODE_CAPACITY
-          ZSTD
-          AUTO
-          NEWLINE_DELIMITED
-          UNSTRUCTURED
-          ACCOUNT_ID
-          CLIENT_CERTIFICATE_PATH
-          CLIENT_ID
-          CLIENT_SECRET
-          SERVICE_PRINCIPAL
-          CREDENTIAL_CHAIN
-          HUGGINGFACE
-          TOKEN
-          CONFIG
-          REGION
-          PROVIDER
-          AZURE
-          GCS
-          R2
-          S3
-          KEY_ID
-          GDAL
-          PERSISTENT
-          ENDPOINT
-          CONNECTION_STRING
-          HTTP_PROXY
-          PROXY_PASSWORD
-          PROXY_USER_NAME
-          ACCOUNT_NAME
-          POSTGRES_BINARY
-          HTTP
-          EXTRA_HTTP_HEADERS
-          BEARER_TOKEN
-          HTTP_PROXY
-          HTTP_PROXY_USERNAME
-          HTTP_PROXY_PASSWORD
-          URL_STYLE
         ))
       end
 
       def self.option_names
         @option_names ||= Set.new(%w(
+          ACCOUNT_ID
+          ACCOUNT_NAME
           ALL_VARCHAR
           ALLOW_QUOTED_NULLS
+          AUTO
           AUTO_DETECT
           AUTO_TYPE_CANDIDATES
+          AZURE
+          BEARER_TOKEN
+          BLOCK_SIZE
+          BROTLI
+          BYTE_STREAM_SPLIT
+          CHILDREN
+          CLIENT_CERTIFICATE_PATH
+          CLIENT_ID
+          CLIENT_SECRET
           CODEC
+          COLUMN_NAMES
+          COLUMN_TYPES
           COLUMNS
           COMPRESSION
+          COMPRESSION_LEVEL
+          CONFIG
+          CONNECTION_STRING
+          CREDENTIAL_CHAIN
+          CSV
           DATEFORMAT
           DECIMAL_SEPARATOR
           DELIM
           DELIMITER
+          DELTA_BINARY_PACKED
+          DELTA_LENGTH_BYTE_ARRAY
           DRIVER
+          EMPTY_AS_VARCHAR
           ENCRYPTION_CONFIG
+          ENDPOINT
+          EXTRA_HTTP_HEADERS
           FIELD_IDS
           FILENAME
           FILENAME_PATTERN
           FORCE_NOT_NULL
           FORMAT
+          GCS
+          GDAL
+          GZIP
           HEADER
           HIVE_PARTITIONING
           HIVE_TYPES
+          HTTP
+          HTTP_PROXY
+          HTTP_PROXY
+          HTTP_PROXY_PASSWORD
+          HTTP_PROXY_USERNAME
+          HUGGINGFACE
           IGNORE_ERRORS
-          REJECTS_TABLE
-          REJECTS_RECOVERY_COLUMNS
-          RECORDS
+          KEY_ID
+          KV_METADATA
+          LAYER
           LAYER_CREATION_OPTIONS
+          LZ4
+          LZ4_RAW
+          LZO
           MAX_LINE_SIZE
+          MAX_NODE_CAPACITY
+          MIN_NODE_CAPACITY
+          MYSQL
+          MYSQL_SCANNER
           NAMES
           NEW_LINE
+          NEWLINE_DELIMITED
           NORMALIZE_NAMES
           NULL_PADDING
           NULLSTR
+          OPEN_OPTIONS
           OVERWRITE_OR_IGNORE
           PARALLEL
+          PARQUET
+          PARQUET_VERSION
           PARTITION_BY
           PER_THREAD_OUTPUT
+          PERSISTENT
+          POSTGRES
+          POSTGRES_BINARY
+          POSTGRES_SCANNER
+          PROVIDER
+          PROXY_PASSWORD
+          PROXY_USER_NAME
           QUOTE
-          READONLY
+          R2
           READ_ONLY
+          READONLY
+          RECORDS
           RECURSIVE
+          REDACT_SECRET
+          REGION
+          REJECTS_LIMIT
+          REJECTS_RECOVERY_COLUMNS
+          REJECTS_TABLE
+          REJECTS_SCAN
           ROW_GROUP_SIZE
+          S3
           SAMPLE_SIZE
           SEP
+          SERVICE_PRINCIPAL
+          SET_REGION
+          SF
           SKIP
+          SNAPPY
+          SQLITE
+          SQLITE_SCANNER
           SRS
+          STEP
+          STOP_AT_EMPTY
+          STORE_REJECTS
           TENANT_ID
           TIMESTAMPFORMAT
+          TOKEN
           TYPES
+          UNCOMPRESSED
           UNION_BY_NAME
+          UNSTRUCTURED
           USE_TMP_FILE
-          LAYER
-          OPEN_OPTIONS
-          SET_REGION
-          REDACT_SECRET
-          SF
-          CHILDREN
-          STEP
-          BLOCK_SIZE
-          COLUMN_NAMES
+          URL_STYLE
+          V1
+          V2
+          V3
+          ZSTD
         ))
       end
 
