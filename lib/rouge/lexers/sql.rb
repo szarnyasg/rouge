@@ -810,10 +810,8 @@ module Rouge
           AUTO
           AUTO_DETECT
           AUTO_TYPE_CANDIDATES
-          AZURE
           BEARER_TOKEN
           BLOCK_SIZE
-          BROTLI
           BYTE_STREAM_SPLIT
           CHILDREN
           CLIENT_CERTIFICATE_PATH
@@ -828,7 +826,6 @@ module Rouge
           CONFIG
           CONNECTION_STRING
           CREDENTIAL_CHAIN
-          CSV
           DATEFORMAT
           DECIMAL_SEPARATOR
           DELIM
@@ -845,9 +842,6 @@ module Rouge
           FILENAME_PATTERN
           FORCE_NOT_NULL
           FORMAT
-          GCS
-          GDAL
-          GZIP
           HEADER
           HIVE_PARTITIONING
           HIVE_TYPES
@@ -862,17 +856,11 @@ module Rouge
           KV_METADATA
           LAYER
           LAYER_CREATION_OPTIONS
-          LZ4
-          LZ4_RAW
-          LZO
           MAX_LINE_SIZE
           MAX_NODE_CAPACITY
           MIN_NODE_CAPACITY
-          MYSQL
-          MYSQL_SCANNER
           NAMES
           NEW_LINE
-          NEWLINE_DELIMITED
           NORMALIZE_NAMES
           NULL_PADDING
           NULLSTR
@@ -884,14 +872,10 @@ module Rouge
           PARTITION_BY
           PER_THREAD_OUTPUT
           PERSISTENT
-          POSTGRES
-          POSTGRES_BINARY
-          POSTGRES_SCANNER
           PROVIDER
           PROXY_PASSWORD
           PROXY_USER_NAME
           QUOTE
-          R2
           READ_ONLY
           READONLY
           RECORDS
@@ -903,16 +887,12 @@ module Rouge
           REJECTS_TABLE
           REJECTS_SCAN
           ROW_GROUP_SIZE
-          S3
           SAMPLE_SIZE
           SEP
           SERVICE_PRINCIPAL
           SET_REGION
           SF
           SKIP
-          SNAPPY
-          SQLITE
-          SQLITE_SCANNER
           SRS
           STEP
           STOP_AT_EMPTY
@@ -921,18 +901,41 @@ module Rouge
           TIMESTAMPFORMAT
           TOKEN
           TYPES
-          UNCOMPRESSED
           UNION_BY_NAME
-          UNSTRUCTURED
           USE_TMP_FILE
           URL_STYLE
-          V1
-          V2
-          V3
-          ZSTD
           FILEPATH
           OVERWRITE_SHEET
           OVERWRITE_RANGE
+          azure
+          brotli
+          csv
+          gcs
+          GCS
+          gdal
+          gzip
+          lz4
+          lz4_raw
+          lzo
+          mysql
+          mysql_scanner
+          newline_delimited
+          postgres
+          postgres_binary
+          postgres_scanner
+          r2
+          R2
+          s3
+          S3
+          snappy
+          sqlite
+          sqlite_scanner
+          uncompressed
+          unstructured
+          v1
+          v2
+          v3
+          zstd
         ))
       end
 
