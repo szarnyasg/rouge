@@ -907,6 +907,11 @@ module Rouge
           FILEPATH
           OVERWRITE_SHEET
           OVERWRITE_RANGE
+        ))
+      end
+
+      def self.option_values
+        @option_values ||= Set.new(%w(
           azure
           brotli
           csv
@@ -2096,7 +2101,7 @@ module Rouge
             token Name::Builtin
           # TODO: the lowercase variant of option_names should only match if it's followed by
           # the regex ' ?:=' or the regex ' ?='
-          elsif self.class.keywords.include? m[0] or self.class.option_names.include? m[0].upcase
+          elsif self.class.keywords.include? m[0] or self.class.option_names.include? m[0].upcase or self.class.option_values.include? m[0]
             token Keyword
           elsif self.class.configuration_options.include? m[0]
             token Name::Property
