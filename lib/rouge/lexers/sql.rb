@@ -930,6 +930,9 @@ module Rouge
           V2
           V3
           ZSTD
+          FILEPATH
+          OVERWRITE_SHEET
+          OVERWRITE_RANGE
         ))
       end
 
@@ -1876,6 +1879,7 @@ module Rouge
           read_avro
           read_xlsx
           read_duckbox
+          read_gsheet
         ))
       end
 
