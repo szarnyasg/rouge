@@ -297,7 +297,6 @@ module Rouge
           ISOLATION
           ITERATE
           JOIN
-          JSON
           KEY
           KEY_MEMBER
           KEY_TYPE
@@ -915,6 +914,7 @@ module Rouge
           azure
           brotli
           csv
+          json
           gcs
           GCS
           gdal
