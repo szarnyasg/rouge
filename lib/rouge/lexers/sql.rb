@@ -1888,6 +1888,7 @@ module Rouge
           read_xlsx
           read_duckbox
           read_gsheet
+          start_ui
         ))
       end
 
