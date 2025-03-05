@@ -1889,6 +1889,7 @@ module Rouge
           read_duckbox
           read_gsheet
           start_ui
+          parquet_bloom_probe
         ))
       end
 
