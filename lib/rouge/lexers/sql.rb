@@ -906,6 +906,8 @@ module Rouge
           FILEPATH
           OVERWRITE_SHEET
           OVERWRITE_RANGE
+          DICTIONARY_SIZE_LIMIT
+          BLOOM_FILTER_FALSE_POSITIVE_RATIO
         ))
       end
 
