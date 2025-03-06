@@ -2070,6 +2070,7 @@ module Rouge
           force_compression
           asof_loop_join_threshold
           string_dictionary_page_size_limit
+          ui_local_port
         ))
       end
 
