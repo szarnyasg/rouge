@@ -2071,6 +2071,8 @@ module Rouge
           asof_loop_join_threshold
           string_dictionary_page_size_limit
           ui_local_port
+          ui_remote_url
+          ui_polling_interval
         ))
       end
 
