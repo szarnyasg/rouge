@@ -946,6 +946,9 @@ module Rouge
           v2
           v3
           zstd
+          credentials_chain
+          delta
+          iceberg
         ))
       end
 
@@ -1894,6 +1897,8 @@ module Rouge
           read_duckbox
           read_gsheet
           start_ui
+          start_ui_server
+          stop_ui
           parquet_bloom_probe
         ))
       end
