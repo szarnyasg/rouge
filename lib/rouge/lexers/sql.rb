@@ -908,6 +908,9 @@ module Rouge
           OVERWRITE_RANGE
           DICTIONARY_SIZE_LIMIT
           BLOOM_FILTER_FALSE_POSITIVE_RATIO
+          PIN_SNAPSHOT
+          PUSHDOWN_PARTITION_INFO
+          PUSHDOWN_FILTERS
         ))
       end
 
