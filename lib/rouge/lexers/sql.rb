@@ -835,6 +835,7 @@ module Rouge
           EMPTY_AS_VARCHAR
           ENCRYPTION_CONFIG
           ENDPOINT
+          ENDPOINT_TYPE
           EXTRA_HTTP_HEADERS
           FIELD_IDS
           FILENAME
